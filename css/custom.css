@@ -189,7 +189,14 @@ html { scroll-padding-top: 90px; }
   font-family: "Unbounded", sans-serif; font-weight: 700;
 }
 
-.stat-value { font-family: "Unbounded", sans-serif; font-weight: 800; font-size: clamp(1.8rem, 3.5vw, 2.6rem); line-height: 1; }
+.stat-value { font-family: "Unbounded", sans-serif; font-weight: 800; font-size: clamp(1.8rem, 3.5vw, 2.6rem); line-height: 1; font-variant-numeric: tabular-nums; transition: color .5s ease; }
+.stat-value.is-counting { color: var(--zc-orange); }
+.stat-value.is-counted { animation: zc-pop .55s cubic-bezier(.3, 1.6, .5, 1); }
+@keyframes zc-pop {
+  0% { transform: scale(1); }
+  45% { transform: scale(1.18); }
+  100% { transform: scale(1); }
+}
 
 .avatar {
   width: 4rem; height: 4rem; flex-shrink: 0; display: grid; place-items: center; border-radius: 50%;
@@ -227,13 +234,7 @@ html { scroll-padding-top: 90px; }
 .summary-card { position: sticky; top: 96px; }
 .summary-row { display: flex; justify-content: space-between; gap: 1rem; padding-block: .4rem; }
 
-/* ---------- 8. CTA и подвал ---------- */
-.cta {
-  background: var(--zc-orange) url("../images/pattern.svg") center / cover no-repeat;
-  position: relative; overflow: hidden; color: #fff;
-}
-.cta::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(242, 84, 27, .97), rgba(242, 84, 27, .82)); }
-.cta > * { position: relative; }
+/* ---------- 8. Подвал ---------- */
 
 .site-footer { background: var(--zc-ink); color: rgba(255, 255, 255, .68); }
 .site-footer h2 { font-family: var(--bs-body-font-family); font-size: .8rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: #fff; }
