@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Запись на скалодром — «Зацеп»</title>
+  <meta name="description" content="Онлайн-запись на скалодром «Зацеп»: разовое посещение, вводное занятие, тренировка с инструктором, абонемент или детская секция.">
+  <meta name="theme-color" content="#15171c">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+  <!-- Bootstrap 5.3.8 и иконки подключены локально (папка vendor/) -->
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <!-- Собственные стили подключаются после Bootstrap -->
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+
+  <a class="skip-link visually-hidden-focusable btn btn-primary" href="#main">Перейти к содержимому</a>
+
+  <div class="topbar py-2 d-none d-md-block">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-8">
+          <span class="me-4"><i class="bi bi-geo-alt me-1" aria-hidden="true"></i>Москва, ул. Промышленная, 14, корп. 2</span>
+          <span><i class="bi bi-clock me-1" aria-hidden="true"></i>Ежедневно 7:00–23:00</span>
+        </div>
+        <div class="col-md-4 text-md-end">
+          <a href="tel:+74951234567" class="fw-semibold"><i class="bi bi-telephone me-1" aria-hidden="true"></i>+7 (495) 123-45-67</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-expand-lg site-navbar sticky-top py-2" aria-label="Основное меню">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="images/logo.svg" alt="" width="38" height="38">
+        Зацеп
+      </a>
+
+      <button
+        class="navbar-toggler border-0"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNavbar"
+        aria-controls="mainNavbar"
+        aria-expanded="false"
+        aria-label="Переключить навигацию"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav mx-auto gap-lg-1">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Главная</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="halls.html">Залы и трассы</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="catalog.html">Абонементы и цены</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="product.html">Новичкам</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="kids.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Детям и события
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="kids.html#sections"><i class="bi bi-emoji-smile me-2" aria-hidden="true"></i>Детские секции</a></li>
+              <li><a class="dropdown-item" href="kids.html#birthday"><i class="bi bi-balloon me-2" aria-hidden="true"></i>Дни рождения</a></li>
+              <li><a class="dropdown-item" href="kids.html#competitions"><i class="bi bi-trophy me-2" aria-hidden="true"></i>Соревнования</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="catalog.html?cat=kids"><i class="bi bi-tag me-2" aria-hidden="true"></i>Цены для детей</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contacts.html">Контакты</a>
+          </li>
+        </ul>
+        <div class="d-flex flex-column flex-lg-row gap-2">
+          <a class="btn btn-primary" href="order.html">
+            <i class="bi bi-calendar2-check me-1" aria-hidden="true"></i>Записаться
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <section class="page-header py-5">
+      <div class="container py-lg-4">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb mb-3">
+            <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Запись</li>
+          </ol>
+        </nav>
+        <div class="row">
+          <div class="col-12 col-lg-8">
+            <p class="eyebrow text-warning mb-2">Онлайн-запись</p>
+            <h1 class="display-5 mb-3">Запись и бронирование</h1>
+            <p class="lead mb-0">Выберите услугу, дату и время — администратор подтвердит запись звонком или в мессенджере. Оплата на месте или по ссылке.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container py-5">
+      <div class="row g-4">
+        <div class="col-12 col-lg-8">
+          <div class="card shadow-sm border-0">
+            <div class="card-header bg-ink text-white p-4 border-0">
+              <h2 class="h4 mb-1">Форма записи</h2>
+              <p class="mb-0 small text-white-50">Поля со звёздочкой обязательны</p>
+            </div>
+
+            <div class="card-body p-4">
+              <div class="alert alert-info d-flex gap-2" role="alert">
+                <i class="bi bi-info-circle-fill flex-shrink-0" aria-hidden="true"></i>
+                <div class="small">Если вы ни разу не лазали, выберите <strong>вводное занятие</strong> — инструктор проведёт инструктаж и выдаст снаряжение.</div>
+              </div>
+
+              <form id="orderForm" class="needs-validation" novalidate
+                data-success-title="Вы записаны!"
+                data-success-text="{name}мы отправили подтверждение на почту. Администратор свяжется с вами, если понадобится уточнить детали.">
+
+                <!-- 1. Услуга -->
+                <fieldset class="mb-4">
+                  <legend class="h6 font-display mb-3"><span class="badge rounded-pill text-bg-dark me-2">1</span>Что бронируем</legend>
+                  <div class="row g-3">
+                    <div class="col-12">
+                      <label for="order-service" class="form-label">Услуга *</label>
+                      <select id="order-service" name="service" class="form-select" required>
+                        <option value="" selected disabled>Выберите услугу</option>
+                  <optgroup label="Посещения">
+                    <option value="intro" data-price="2400" data-gear="included">Вводное занятие «Первый зацеп» — 2&nbsp;400&nbsp;₽</option>
+                    <option value="single" data-price="1200">Разовое посещение — 1&nbsp;200&nbsp;₽</option>
+                    <option value="single-morning" data-price="900">Разовое утром (будни до 16:00) — 900&nbsp;₽</option>
+                  </optgroup>
+                  <optgroup label="Абонементы">
+                    <option value="sub-8" data-price="6400">8 посещений (действует 2 месяца) — 6&nbsp;400&nbsp;₽</option>
+                    <option value="sub-month" data-price="7900">Безлимит на месяц — 7&nbsp;900&nbsp;₽</option>
+                    <option value="sub-morning" data-price="4900">Утренний безлимит на месяц — 4&nbsp;900&nbsp;₽</option>
+                    <option value="sub-student" data-price="5500">Студенческий безлимит на месяц — 5&nbsp;500&nbsp;₽</option>
+                    <option value="sub-year" data-price="59000">Безлимит на год — 59&nbsp;000&nbsp;₽</option>
+                  </optgroup>
+                  <optgroup label="Тренировки">
+                    <option value="personal" data-price="3500">Персональная тренировка, 60 мин — 3&nbsp;500&nbsp;₽</option>
+                    <option value="group-start" data-price="9600">Группа «Старт», 8 занятий — 9&nbsp;600&nbsp;₽</option>
+                    <option value="group-tech" data-price="11200">Группа «Техника», 8 занятий — 11&nbsp;200&nbsp;₽</option>
+                    <option value="lead-course" data-price="14900">Курс нижней страховки, 4 занятия — 14&nbsp;900&nbsp;₽</option>
+                  </optgroup>
+                  <optgroup label="Детям и события">
+                    <option value="kids-trial" data-price="0" data-gear="included">Пробное детское занятие — бесплатно</option>
+                    <option value="kids-5" data-price="7200" data-gear="included">Детская секция 5–7 лет, месяц — 7&nbsp;200&nbsp;₽</option>
+                    <option value="kids-8" data-price="8000" data-gear="included">Детская секция 8–14 лет, месяц — 8&nbsp;000&nbsp;₽</option>
+                    <option value="birthday" data-price="24000" data-gear="included">День рождения «Приключение» — 24&nbsp;000&nbsp;₽</option>
+                    <option value="competition" data-price="1500">Участие в «Зацеп Open» — 1&nbsp;500&nbsp;₽</option>
+                  </optgroup>
+                      </select>
+                      <div class="invalid-feedback">Выберите услугу.</div>
+                    </div>
+
+                    <div class="col-12">
+                      <span class="form-label d-block">Ваш опыт</span>
+                      <div class="d-flex flex-wrap gap-2" role="group" aria-label="Уровень подготовки">
+                        <input type="radio" class="btn-check" name="level" id="level-new" value="new" checked>
+                        <label class="btn btn-outline-dark btn-sm" for="level-new">Впервые</label>
+                        <input type="radio" class="btn-check" name="level" id="level-some" value="some">
+                        <label class="btn btn-outline-dark btn-sm" for="level-some">Лазал(а) пару раз</label>
+                        <input type="radio" class="btn-check" name="level" id="level-pro" value="pro">
+                        <label class="btn btn-outline-dark btn-sm" for="level-pro">Лазаю регулярно</label>
+                        <input type="radio" class="btn-check" name="level" id="level-lead" value="lead">
+                        <label class="btn btn-outline-dark btn-sm" for="level-lead">Есть допуск к страховке</label>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+
+                <!-- 2. Дата и время -->
+                <fieldset class="mb-4">
+                  <legend class="h6 font-display mb-3"><span class="badge rounded-pill text-bg-dark me-2">2</span>Когда</legend>
+                  <div class="row g-3">
+                    <div class="col-12 col-md-5">
+                      <label for="order-date" class="form-label">Дата *</label>
+                      <input id="order-date" name="date" type="date" class="form-control" required>
+                      <div class="invalid-feedback">Выберите дату не раньше сегодняшней.</div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                      <label for="order-time" class="form-label">Время *</label>
+                      <select id="order-time" name="time" class="form-select" required>
+                        <option value="" selected disabled>—:—</option>
+                        <option>07:00</option><option>08:30</option><option>10:00</option><option>11:00</option><option>12:30</option><option>14:00</option><option>15:00</option><option>16:30</option><option>18:00</option><option>18:30</option><option>19:00</option><option>20:30</option><option>21:30</option>
+                      </select>
+                      <div class="invalid-feedback">Выберите время.</div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                      <label for="order-people" class="form-label">Человек</label>
+                      <div class="input-group">
+                        <button class="btn btn-outline-secondary" type="button" data-step="-1" aria-label="Меньше участников"><i class="bi bi-dash" aria-hidden="true"></i></button>
+                        <input id="order-people" name="people" type="number" class="form-control text-center" value="1" min="1" max="10" inputmode="numeric">
+                        <button class="btn btn-outline-secondary" type="button" data-step="1" aria-label="Больше участников"><i class="bi bi-plus" aria-hidden="true"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+
+                <!-- 3. Прокат -->
+                <fieldset class="mb-4">
+                  <legend class="h6 font-display mb-3"><span class="badge rounded-pill text-bg-dark me-2">3</span>Прокат снаряжения</legend>
+                  <div id="rentalIncluded" class="alert alert-success py-2 small d-none" role="status">
+                    <i class="bi bi-check-circle-fill me-1" aria-hidden="true"></i>Для выбранной услуги снаряжение уже включено в стоимость.
+                  </div>
+                  <div class="row g-2">
+                    <div class="col-12 col-md-4">
+                      <div class="form-check border rounded-3 p-3 ps-5 h-100">
+                        <input class="form-check-input" type="checkbox" name="rental" value="shoes" id="rent-shoes" data-price="300">
+                        <label class="form-check-label" for="rent-shoes">Скальные туфли<br><small class="text-body-secondary">300&nbsp;₽</small></label>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                      <div class="form-check border rounded-3 p-3 ps-5 h-100">
+                        <input class="form-check-input" type="checkbox" name="rental" value="harness" id="rent-harness" data-price="200">
+                        <label class="form-check-label" for="rent-harness">Страховочная система<br><small class="text-body-secondary">200&nbsp;₽</small></label>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                      <div class="form-check border rounded-3 p-3 ps-5 h-100">
+                        <input class="form-check-input" type="checkbox" name="rental" value="chalk" id="rent-chalk" data-price="100">
+                        <label class="form-check-label" for="rent-chalk">Магнезия<br><small class="text-body-secondary">100&nbsp;₽</small></label>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+
+                <!-- 4. Контакты -->
+                <fieldset class="mb-4">
+                  <legend class="h6 font-display mb-3"><span class="badge rounded-pill text-bg-dark me-2">4</span>Контакты</legend>
+                  <div class="row g-3">
+                    <div class="col-12 col-md-6">
+                      <label for="order-name" class="form-label">Имя и фамилия *</label>
+                      <input id="order-name" name="name" type="text" class="form-control" autocomplete="name" minlength="2" required>
+                      <div class="invalid-feedback">Укажите имя.</div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <label for="order-email" class="form-label">E-mail *</label>
+                      <input id="order-email" name="email" type="email" class="form-control" autocomplete="email" placeholder="you@example.ru" required>
+                      <div class="invalid-feedback">Нужен корректный адрес — пришлём подтверждение.</div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <label for="order-phone" class="form-label">Телефон *</label>
+                      <div class="input-group has-validation">
+                        <span class="input-group-text">+7</span>
+                        <input id="order-phone" name="phone" type="tel" class="form-control" placeholder="900 000-00-00" pattern="[0-9\s\-\(\)]{10,15}" autocomplete="tel-national" required>
+                        <div class="invalid-feedback">Укажите номер из 10 цифр.</div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <label for="order-promo" class="form-label">Промокод</label>
+                      <div class="input-group">
+                        <input id="order-promo" name="promo" type="text" class="form-control text-uppercase" aria-describedby="promoFeedback">
+                        <button class="btn btn-outline-dark" type="button" id="promoApply">Применить</button>
+                      </div>
+                      <div id="promoFeedback" class="form-text">Например, ЗАЦЕП10 — скидка 10% на первое посещение.</div>
+                    </div>
+                    <div class="col-12">
+                      <label for="order-comment" class="form-label">Комментарий</label>
+                      <textarea id="order-comment" name="comment" class="form-control" rows="3" placeholder="Например: придём с ребёнком 12 лет, нужен размер туфель 38"></textarea>
+                    </div>
+                  </div>
+                </fieldset>
+
+                <div class="d-grid gap-2 mb-4">
+                  <div class="form-check">
+                    <input id="order-rules" name="rules" class="form-check-input" type="checkbox" required>
+                    <label class="form-check-label" for="order-rules">
+                      Я ознакомлен(а) с <a href="#" data-bs-toggle="modal" data-bs-target="#rulesModal">правилами посещения скалодрома</a> *
+                    </label>
+                    <div class="invalid-feedback">Подтвердите, что прочитали правила.</div>
+                  </div>
+                  <div class="form-check">
+                    <input id="order-agree" name="agree" class="form-check-input" type="checkbox" required>
+                    <label class="form-check-label" for="order-agree">Согласен(на) на обработку персональных данных *</label>
+                    <div class="invalid-feedback">Нужно согласие на обработку данных.</div>
+                  </div>
+                  <div class="form-check form-switch">
+                    <input id="order-news" name="news" class="form-check-input" type="checkbox" role="switch">
+                    <label class="form-check-label" for="order-news">Присылать анонсы соревнований и новых трасс</label>
+                  </div>
+                </div>
+
+                <div class="d-flex flex-column flex-sm-row gap-2">
+                  <button class="btn btn-primary btn-lg" type="submit"><i class="bi bi-calendar2-check me-2" aria-hidden="true"></i>Записаться</button>
+                  <button class="btn btn-outline-secondary btn-lg" type="reset">Очистить</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Сводка заказа -->
+        <div class="col-12 col-lg-4">
+          <div class="summary-card d-grid gap-4">
+            <div class="card border-0 shadow-sm">
+              <div class="card-body p-4">
+                <h2 class="h5 mb-3">Ваша запись</h2>
+                <div class="summary-row"><span class="text-body-secondary">Услуга</span><span id="sumService" class="fw-semibold text-end">Не выбрано</span></div>
+                <div class="summary-row"><span class="text-body-secondary">Когда</span><span id="sumDate" class="fw-semibold text-end">—</span></div>
+                <div class="summary-row"><span class="text-body-secondary">Цена</span><span id="sumPrice" class="fw-semibold text-end">—</span></div>
+                <div class="summary-row"><span class="text-body-secondary">Прокат</span><span id="sumRental" class="fw-semibold text-end">—</span></div>
+                <div class="summary-row"><span class="text-body-secondary">Скидка</span><span id="sumDiscount" class="fw-semibold text-success text-end">—</span></div>
+                <hr>
+                <div class="summary-row align-items-baseline"><span class="fw-bold">Итого</span><span id="sumTotal" class="price">—</span></div>
+                <p class="small text-body-secondary mb-0 mt-2">Оплата на ресепшене картой, наличными или по СБП.</p>
+              </div>
+            </div>
+
+            <div class="card border-0 bg-chalk">
+              <div class="card-body p-4">
+                <h2 class="h6 mb-3">Нужна помощь?</h2>
+                <p class="small text-body-secondary">Позвоните — поможем выбрать услугу и удобное время.</p>
+                <a class="btn btn-dark w-100 mb-2" href="tel:+74951234567"><i class="bi bi-telephone me-2" aria-hidden="true"></i>+7 (495) 123-45-67</a>
+                <a class="btn btn-outline-dark w-100" href="#"><i class="bi bi-telegram me-2" aria-hidden="true"></i>Написать в Telegram</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Второе модальное окно: правила -->
+    <div class="modal fade" id="rulesModal" tabindex="-1" aria-labelledby="rulesModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content rounded-4">
+          <div class="modal-header">
+            <h2 class="modal-title h5" id="rulesModalLabel">Правила посещения скалодрома</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+          </div>
+          <div class="modal-body">
+            <ol class="d-grid gap-2 mb-0">
+              <li>Перед первым посещением необходимо пройти инструктаж и подписать согласие с правилами.</li>
+              <li>Лазание с нижней и верхней страховкой разрешено только при наличии допуска.</li>
+              <li>В зоне боулдеринга нельзя стоять и сидеть на матах под лазающим человеком.</li>
+              <li>Запрещено лазать в уличной обуви, с едой и напитками в руках, с украшениями на руках.</li>
+              <li>Дети до 14 лет находятся в зале только под присмотром тренера или родителя.</li>
+              <li>Перед лазанием на автостраховке проверьте, что карабин застёгнут на страховочной петле системы.</li>
+              <li>Сообщайте администратору о шатающихся зацепах и травмах.</li>
+            </ol>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Понятно</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer pt-5 pb-4">
+    <div class="container">
+      <div class="row g-4 pb-4">
+        <div class="col-12 col-lg-4">
+          <a class="d-inline-flex align-items-center gap-2 mb-3 text-white fs-4 font-display fw-bold" href="index.html">
+            <img src="images/logo.svg" alt="" width="40" height="40">Зацеп
+          </a>
+          <p class="mb-4">Скалодром для тех, кто только начинает, и для тех, кто давно лазает. Боулдеринг, трудность, детские секции и соревнования.</p>
+          <div class="d-flex gap-2">
+            <a class="social-link" href="#" aria-label="Мы в Telegram"><i class="bi bi-telegram" aria-hidden="true"></i></a>
+            <a class="social-link" href="#" aria-label="Мы на YouTube"><i class="bi bi-youtube" aria-hidden="true"></i></a>
+            <a class="social-link" href="#" aria-label="Написать в WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2">
+          <h2 class="mb-3">Скалодром</h2>
+          <ul class="list-unstyled d-grid gap-2 mb-0">
+            <li><a href="halls.html">Залы и трассы</a></li>
+            <li><a href="catalog.html">Абонементы</a></li>
+            <li><a href="product.html">Вводное занятие</a></li>
+            <li><a href="kids.html#competitions">Соревнования</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2">
+          <h2 class="mb-3">Посетителям</h2>
+          <ul class="list-unstyled d-grid gap-2 mb-0">
+            <li><a href="order.html">Запись онлайн</a></li>
+            <li><a href="kids.html#sections">Детские секции</a></li>
+            <li><a href="kids.html#birthday">Дни рождения</a></li>
+            <li><a href="halls.html#rules">Правила зала</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-4 col-lg-4">
+          <h2 class="mb-3">Контакты</h2>
+          <ul class="list-unstyled d-grid gap-2 mb-0">
+            <li><i class="bi bi-geo-alt me-2 text-orange" aria-hidden="true"></i>Москва, ул. Промышленная, 14, корп. 2</li>
+            <li><i class="bi bi-telephone me-2 text-orange" aria-hidden="true"></i><a href="tel:+74951234567">+7 (495) 123-45-67</a></li>
+            <li><i class="bi bi-envelope me-2 text-orange" aria-hidden="true"></i><a href="mailto:hello@zacep-climb.ru">hello@zacep-climb.ru</a></li>
+            <li><i class="bi bi-clock me-2 text-orange" aria-hidden="true"></i>Ежедневно 7:00–23:00</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-top border-secondary-subtle pt-4 d-flex flex-column flex-md-row justify-content-between gap-2 small">
+        <p class="mb-0">&copy; <span data-year>2026</span> Скалодром «Зацеп». Учебный проект КР №2.</p>
+        <p class="mb-0"><a href="contacts.html">Политика конфиденциальности</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal fade" id="quickBookModal" tabindex="-1" aria-labelledby="quickBookLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 rounded-4">
+        <div class="modal-header border-0 pb-0">
+          <div>
+            <h2 class="modal-title h5" id="quickBookLabel">Быстрая запись</h2>
+            <p class="text-body-secondary small mb-0">Перезвоним за 15 минут и подберём время</p>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+        </div>
+
+        <form class="needs-validation" novalidate data-success-title="Заявка принята" data-success-text="{name}администратор позвонит вам в течение 15 минут и подтвердит запись.">
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="quick-name" class="form-label">Имя</label>
+              <input id="quick-name" name="name" type="text" class="form-control" autocomplete="given-name" required>
+              <div class="invalid-feedback">Как к вам обращаться?</div>
+            </div>
+            <div class="mb-3">
+              <label for="quick-phone" class="form-label">Телефон</label>
+              <div class="input-group has-validation">
+                <span class="input-group-text">+7</span>
+                <input id="quick-phone" name="phone" type="tel" class="form-control" placeholder="900 000-00-00" pattern="[0-9\s\-\(\)]{10,15}" autocomplete="tel-national" required>
+                <div class="invalid-feedback">Укажите номер из 10 цифр.</div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="quick-service" class="form-label">Что вас интересует</label>
+              <select id="quick-service" name="service" class="form-select">
+                  <optgroup label="Посещения">
+                    <option value="intro" data-price="2400" data-gear="included">Вводное занятие «Первый зацеп»</option>
+                    <option value="single" data-price="1200">Разовое посещение</option>
+                    <option value="single-morning" data-price="900">Разовое утром (будни до 16:00)</option>
+                  </optgroup>
+                  <optgroup label="Абонементы">
+                    <option value="sub-8" data-price="6400">8 посещений (действует 2 месяца)</option>
+                    <option value="sub-month" data-price="7900">Безлимит на месяц</option>
+                    <option value="sub-morning" data-price="4900">Утренний безлимит на месяц</option>
+                    <option value="sub-student" data-price="5500">Студенческий безлимит на месяц</option>
+                    <option value="sub-year" data-price="59000">Безлимит на год</option>
+                  </optgroup>
+                  <optgroup label="Тренировки">
+                    <option value="personal" data-price="3500">Персональная тренировка, 60 мин</option>
+                    <option value="group-start" data-price="9600">Группа «Старт», 8 занятий</option>
+                    <option value="group-tech" data-price="11200">Группа «Техника», 8 занятий</option>
+                    <option value="lead-course" data-price="14900">Курс нижней страховки, 4 занятия</option>
+                  </optgroup>
+                  <optgroup label="Детям и события">
+                    <option value="kids-trial" data-price="0" data-gear="included">Пробное детское занятие</option>
+                    <option value="kids-5" data-price="7200" data-gear="included">Детская секция 5–7 лет, месяц</option>
+                    <option value="kids-8" data-price="8000" data-gear="included">Детская секция 8–14 лет, месяц</option>
+                    <option value="birthday" data-price="24000" data-gear="included">День рождения «Приключение»</option>
+                    <option value="competition" data-price="1500">Участие в «Зацеп Open»</option>
+                  </optgroup>
+              </select>
+            </div>
+            <div class="form-check">
+              <input id="quick-agree" name="agree" class="form-check-input" type="checkbox" required>
+              <label class="form-check-label small" for="quick-agree">Согласен(на) на обработку персональных данных</label>
+              <div class="invalid-feedback">Без согласия мы не сможем перезвонить.</div>
+            </div>
+          </div>
+          <div class="modal-footer border-0 pt-0">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Отмена</button>
+            <button type="submit" class="btn btn-primary">Жду звонка</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="siteToast" class="toast border-0 shadow" role="status" aria-live="polite" aria-atomic="true">
+      <div class="toast-header">
+        <span class="badge text-bg-success rounded-pill me-2"><i class="bi bi-check-lg" aria-hidden="true"></i></span>
+        <strong class="me-auto" data-toast-title>Готово</strong>
+        <small>сейчас</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+      </div>
+      <div class="toast-body" data-toast-text></div>
+    </div>
+  </div>
+
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
