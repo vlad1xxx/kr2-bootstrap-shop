@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Залы и трассы — скалодром «Зацеп»</title>
+  <meta name="description" content="Четыре зала скалодрома «Зацеп»: боулдеринг, трудность 16 м, детский зал и тренажёрная зона. Свежие трассы и шкала сложности.">
+  <meta name="theme-color" content="#15171c">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+  <!-- Bootstrap 5.3.8 и иконки подключены локально (папка vendor/) -->
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <!-- Собственные стили подключаются после Bootstrap -->
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+
+  <a class="skip-link visually-hidden-focusable btn btn-primary" href="#main">Перейти к содержимому</a>
+
+  <div class="topbar py-2 d-none d-md-block">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-8">
+          <span class="me-4"><i class="bi bi-geo-alt me-1" aria-hidden="true"></i>Москва, ул. Промышленная, 14, корп. 2</span>
+          <span><i class="bi bi-clock me-1" aria-hidden="true"></i>Ежедневно 7:00–23:00</span>
+        </div>
+        <div class="col-md-4 text-md-end">
+          <a href="tel:+74951234567" class="fw-semibold"><i class="bi bi-telephone me-1" aria-hidden="true"></i>+7 (495) 123-45-67</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-expand-lg site-navbar sticky-top py-2" aria-label="Основное меню">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="images/logo.svg" alt="" width="38" height="38">
+        Зацеп
+      </a>
+
+      <button
+        class="navbar-toggler border-0"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNavbar"
+        aria-controls="mainNavbar"
+        aria-expanded="false"
+        aria-label="Переключить навигацию"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav mx-auto gap-lg-1">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Главная</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="halls.html">Залы и трассы</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="catalog.html">Абонементы и цены</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="product.html">Новичкам</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="kids.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Детям и события
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="kids.html#sections"><i class="bi bi-emoji-smile me-2" aria-hidden="true"></i>Детские секции</a></li>
+              <li><a class="dropdown-item" href="kids.html#birthday"><i class="bi bi-balloon me-2" aria-hidden="true"></i>Дни рождения</a></li>
+              <li><a class="dropdown-item" href="kids.html#competitions"><i class="bi bi-trophy me-2" aria-hidden="true"></i>Соревнования</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="catalog.html?cat=kids"><i class="bi bi-tag me-2" aria-hidden="true"></i>Цены для детей</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contacts.html">Контакты</a>
+          </li>
+        </ul>
+        <div class="d-flex flex-column flex-lg-row gap-2">
+          <a class="btn btn-primary" href="order.html">
+            <i class="bi bi-calendar2-check me-1" aria-hidden="true"></i>Записаться
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <section class="page-header py-5">
+      <div class="container py-lg-4">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb mb-3">
+            <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Залы и трассы</li>
+          </ol>
+        </nav>
+        <div class="row">
+          <div class="col-12 col-lg-8">
+            <p class="eyebrow text-warning mb-2">4 зала · 240+ трасс</p>
+            <h1 class="display-5 mb-3">Залы и трассы</h1>
+            <p class="lead mb-0">1 600 м² стен в четырёх залах. Новые трассы каждую неделю — от простых «лесенок» для первого визита до сложных боулдеров уровня 7C.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Залы: компонент nav-pills + tab-content -->
+    <section class="container py-5">
+      <ul class="nav nav-pills gap-2 mb-4 flex-nowrap overflow-auto pb-1" id="hallTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link text-nowrap active" id="hall-boulder-tab" data-bs-toggle="pill" data-bs-target="#hall-boulder" type="button" role="tab" aria-controls="hall-boulder" aria-selected="true">Боулдеринг</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link text-nowrap" id="hall-lead-tab" data-bs-toggle="pill" data-bs-target="#hall-lead" type="button" role="tab" aria-controls="hall-lead" aria-selected="false">Трудность</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link text-nowrap" id="hall-kids-tab" data-bs-toggle="pill" data-bs-target="#hall-kids" type="button" role="tab" aria-controls="hall-kids" aria-selected="false">Детский</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link text-nowrap" id="hall-training-tab" data-bs-toggle="pill" data-bs-target="#hall-training" type="button" role="tab" aria-controls="hall-training" aria-selected="false">Тренажёрная</button>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+        <div class="tab-pane fade show active" id="hall-boulder" role="tabpanel" aria-labelledby="hall-boulder-tab" tabindex="0">
+          <div class="row g-4 g-lg-5 align-items-center">
+            <div class="col-12 col-lg-6">
+              <img src="images/hall-boulder.svg" class="img-fluid rounded-4 shadow-sm w-100" alt="Боулдеринговая стена с нависанием, объёмами и разноцветными зацепами" width="900" height="600">
+            </div>
+            <div class="col-12 col-lg-6">
+              <h2 class="h3 mb-3">Боулдеринг-зал «Пещера»</h2>
+              <div class="d-flex flex-wrap gap-2 mb-3">
+                <span class="badge text-bg-light border">Новичкам</span>
+                <span class="badge text-bg-light border">Без страховки</span>
+                <span class="badge text-bg-light border">Можно одному</span>
+              </div>
+              <p class="text-body-secondary mb-4">Короткие силовые трассы до 4,5 м без верёвки. Под стенами — маты толщиной 40 см по всей площади. Новичкам — плиты с положительным уклоном, опытным — нависание до 45° и «крыша».</p>
+              <div class="row g-3 mb-4">
+                <div class="col-6 col-sm-3">
+                  <div class="bg-chalk rounded-3 p-3 text-center h-100">
+                    <div class="fw-bold font-display">420 м²</div>
+                    <div class="small text-body-secondary">площадь стен</div>
+                  </div>
+                </div>
+                <div class="col-6 col-sm-3">
+                  <div class="bg-chalk rounded-3 p-3 text-center h-100">
+                    <div class="fw-bold font-display">4,5 м</div>
+                    <div class="small text-body-secondary">высота</div>
+                  </div>
+                </div>
+                <div class="col-6 col-sm-3">
+                  <div class="bg-chalk rounded-3 p-3 text-center h-100">
+                    <div class="fw-bold font-display">120</div>
+                    <div class="small text-body-secondary">трасс</div>
+                  </div>
+                </div>
+                <div class="col-6 col-sm-3">
+                  <div class="bg-chalk rounded-3 p-3 text-center h-100">
+                    <div class="fw-bold font-display">Вт</div>
+                    <div class="small text-body-secondary">день накрутки</div>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-1 d-flex justify-content-between small"><span class="fw-semibold">Диапазон сложности</span><span class="text-body-secondary">от 4 до 7C</span></div>
+              <div class="progress" role="progressbar" aria-label="Диапазон сложности: от 4 до 7C" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar" style="width: 70%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="hall-lead" role="tabpanel" aria-labelledby="hall-lead-tab" tabindex="0">
+          <div class="row g-4 g-lg-5 align-items-center">
+            <div class="col-12 col-lg-6">
+              <img src="images/hall-lead.svg" class="img-fluid rounded-4 shadow-sm w-100" alt="Высокая стена трудности с верёвкой и оттяжками" width="900" height="600">
+            </div>
+            <div class="col-12 col-lg-6">
+              <h2 class="h3 mb-3">Зал трудности «Стена»</h2>
+              <div class="d-flex flex-wrap gap-2 mb-3">
+                <span class="badge text-bg-light border">Нужен допуск</span>
+                <span class="badge text-bg-light border">Автостраховки</span>
+                <span class="badge text-bg-light border">Вдвоём с напарником</span>
+              </div>
+              <p class="text-body-secondary mb-4">Длинные маршруты на выносливость высотой 16 метров. 32 линии с верхней и нижней страховкой и 6 автостраховок для тех, кто лазает без напарника.</p>
+              <div class="row g-3 mb-4">
+                <div class="col-6 col-sm-3">
+                  <div class="bg-chalk rounded-3 p-3 text-center h-100">
+                    <div class="fw-bold font-display">16 м</div>
+                    <div class="small text-body-secondary">высота</div>
+                  </div>
+                </div>
+                <div class="col-6 col-sm-3">
+                  <div class="bg-chalk rounded-3 p-3 text-center h-100">
+                    <div class="fw-bold font-display">32</div>
+                    <div class="small text-body-secondary">линии</div>
+                  </div>
+                </div>
+                <div class="col-6 col-sm-3">
+                  <div class="bg-chalk rounded-3 p-3 text-center h-100">
+                    <div class="fw-bold font-display">6</div>
+                    <div class="small text-body-secondary">автостраховок</div>
+                  </div>
+                </div>
+                <div class="col-6 col-sm-3">
+                  <div class="bg-chalk rounded-3 p-3 text-center h-100">
+                    <div class="fw-bold font-display">Пт</div>
+                    <div class="small text-body-secondary">день накрутки</div>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-1 d-flex justify-content-between small"><span class="fw-semibold">Диапазон сложности</span><span class="text-body-secondary">от 4 до 8b</span></div>
+              <div class="progress" role="progressbar" aria-label="Диапазон сложности: от 4 до 8b" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar" style="width: 85%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="hall-kids" role="tabpanel" aria-labelledby="hall-kids-tab" tabindex="0">
+          <div class="row g-4 g-lg-5 align-items-center">
+            <div class="col-12 col-lg-6">
+              <img src="images/hall-kids.svg" class="img-fluid rounded-4 shadow-sm w-100" alt="Детская скалодромная стена с крупными яркими зацепами" width="900" height="600">
+            </div>
+            <div class="col-12 col-lg-6">
+              <h2 class="h3 mb-3">Детский зал «Скалята»</h2>
+              <div class="d-flex flex-wrap gap-2 mb-3">
+                <span class="badge text-bg-light border">Для детей</span>
+                <span class="badge text-bg-light border">Только с тренером</span>
+                <span class="badge text-bg-light border">Дни рождения</span>
+              </div>
+              <p class="text-body-secondary mb-4">Стены высотой 6 метров с автостраховками, игровые трассы с цифрами и животными, мягкая зона для малышей и комната для праздников.</p>
+              <div class="row g-3 mb-4">
+                <div class="col-6 col-sm-3">
+                  <div class="bg-chalk rounded-3 p-3 text-center h-100">
+                    <div class="fw-bold font-display">6 м</div>
+                    <div class="small text-body-secondary">высота</div>
+                  </div>
+                </div>
+                <div class="col-6 col-sm-3">
+                  <div class="bg-chalk rounded-3 p-3 text-center h-100">
+                    <div class="fw-bold font-display">10</div>
+                    <div class="small text-body-secondary">автостраховок</div>
+                  </div>
+                </div>
+                <div class="col-6 col-sm-3">
+                  <div class="bg-chalk rounded-3 p-3 text-center h-100">
+                    <div class="fw-bold font-display">5+</div>
+                    <div class="small text-body-secondary">лет</div>
+                  </div>
+                </div>
+                <div class="col-6 col-sm-3">
+                  <div class="bg-chalk rounded-3 p-3 text-center h-100">
+                    <div class="fw-bold font-display">2</div>
+                    <div class="small text-body-secondary">тренера на группу</div>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-1 d-flex justify-content-between small"><span class="fw-semibold">Диапазон сложности</span><span class="text-body-secondary">от 3 до 6a</span></div>
+              <div class="progress" role="progressbar" aria-label="Диапазон сложности: от 3 до 6a" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar" style="width: 30%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="hall-training" role="tabpanel" aria-labelledby="hall-training-tab" tabindex="0">
+          <div class="row g-4 g-lg-5 align-items-center">
+            <div class="col-12 col-lg-6">
+              <img src="images/hall-training.svg" class="img-fluid rounded-4 shadow-sm w-100" alt="Системная тренировочная стена с мелкими чёрными зацепами" width="900" height="600">
+            </div>
+            <div class="col-12 col-lg-6">
+              <h2 class="h3 mb-3">Тренажёрная зона</h2>
+              <div class="d-flex flex-wrap gap-2 mb-3">
+                <span class="badge text-bg-light border">Для опытных</span>
+                <span class="badge text-bg-light border">Силовая работа</span>
+                <span class="badge text-bg-light border">Персональные тренировки</span>
+              </div>
+              <p class="text-body-secondary mb-4">Для тех, кто хочет прогрессировать: системная стена 40° с подсветкой трасс, кампусборд, фингерборды, турники и зона ОФП со свободными весами.</p>
+              <div class="row g-3 mb-4">
+                <div class="col-6 col-sm-3">
+                  <div class="bg-chalk rounded-3 p-3 text-center h-100">
+                    <div class="fw-bold font-display">40°</div>
+                    <div class="small text-body-secondary">системная стена</div>
+                  </div>
+                </div>
+                <div class="col-6 col-sm-3">
+                  <div class="bg-chalk rounded-3 p-3 text-center h-100">
+                    <div class="fw-bold font-display">3</div>
+                    <div class="small text-body-secondary">кампусборда</div>
+                  </div>
+                </div>
+                <div class="col-6 col-sm-3">
+                  <div class="bg-chalk rounded-3 p-3 text-center h-100">
+                    <div class="fw-bold font-display">12</div>
+                    <div class="small text-body-secondary">фингербордов</div>
+                  </div>
+                </div>
+                <div class="col-6 col-sm-3">
+                  <div class="bg-chalk rounded-3 p-3 text-center h-100">
+                    <div class="fw-bold font-display">ОФП</div>
+                    <div class="small text-body-secondary">зона</div>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-1 d-flex justify-content-between small"><span class="fw-semibold">Диапазон сложности</span><span class="text-body-secondary">от 6b и выше</span></div>
+              <div class="progress" role="progressbar" aria-label="Диапазон сложности: от 6b и выше" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar" style="width: 95%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Шкала сложности -->
+    <section class="bg-chalk section">
+      <div class="container">
+        <div class="row g-4 g-lg-5 align-items-center">
+          <div class="col-12 col-lg-5">
+            <p class="eyebrow mb-2">Как выбрать трассу</p>
+            <h2 class="display-6 mb-3">Цвет — это трасса, цифра — сложность</h2>
+            <p class="text-body-secondary">Все зацепы одной трассы — одного цвета. Рядом со стартом висит бирка с категорией по французской шкале: чем больше цифра и буква, тем сложнее.</p>
+            <p class="text-body-secondary mb-0">Для первого визита ищите бирки <span class="grade grade-easy">4</span> и <span class="grade grade-easy">5a</span>.</p>
+          </div>
+          <div class="col-12 col-lg-7">
+            <div class="row g-3">
+              <div class="col-6 col-md-3"><div class="card h-100 border-0 shadow-sm text-center p-3"><span class="grade grade-easy mx-auto mb-2">3–5b</span><div class="fw-bold small">Новичкам</div><div class="small text-body-secondary">первые недели</div></div></div>
+              <div class="col-6 col-md-3"><div class="card h-100 border-0 shadow-sm text-center p-3"><span class="grade grade-mid mx-auto mb-2">5c–6b</span><div class="fw-bold small">Любителям</div><div class="small text-body-secondary">2–6 месяцев</div></div></div>
+              <div class="col-6 col-md-3"><div class="card h-100 border-0 shadow-sm text-center p-3"><span class="grade grade-hard mx-auto mb-2">6b+–7a</span><div class="fw-bold small">Опытным</div><div class="small text-body-secondary">1–3 года</div></div></div>
+              <div class="col-6 col-md-3"><div class="card h-100 border-0 shadow-sm text-center p-3"><span class="grade grade-pro mx-auto mb-2">7a+ и выше</span><div class="fw-bold small">Профи</div><div class="small text-body-secondary">спортсмены</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Таблица трасс с фильтром -->
+    <section class="container section" id="routes">
+      <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-end gap-3 mb-4">
+        <div>
+          <p class="eyebrow mb-2">Обновлено 10 ноября</p>
+          <h2 class="display-6 mb-0">Свежие трассы</h2>
+        </div>
+        <div class="row g-2">
+          <div class="col-12 col-sm-6">
+            <label for="routeHall" class="visually-hidden">Зал</label>
+            <select id="routeHall" class="form-select">
+              <option value="all">Все залы</option>
+              <option value="hall-boulder">Боулдеринг</option>
+              <option value="hall-lead">Трудность</option>
+              <option value="hall-kids">Детский</option>
+              <option value="hall-training">Тренажёрная</option>
+            </select>
+          </div>
+          <div class="col-12 col-sm-6">
+            <label for="routeLevel" class="visually-hidden">Уровень</label>
+            <select id="routeLevel" class="form-select">
+              <option value="all">Любой уровень</option>
+              <option value="easy">Новичкам</option>
+              <option value="mid">Любителям</option>
+              <option value="hard">Опытным</option>
+              <option value="pro">Профи</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="alert alert-warning d-flex gap-2 rounded-4" role="alert">
+        <i class="bi bi-tools flex-shrink-0" aria-hidden="true"></i>
+        <div class="small"><strong>Накрутка:</strong> по вторникам с 10:00 до 16:00 часть боулдеринг-зала закрыта — накручиваем новые трассы.</div>
+      </div>
+
+      <div class="table-responsive border rounded-4">
+        <table class="table table-hover align-middle mb-0" id="routesTable">
+          <caption class="px-3">Показано трасс: <span id="routesCount">14</span></caption>
+          <thead class="table-light">
+            <tr>
+              <th scope="col">Трасса</th>
+              <th scope="col">Зал</th>
+              <th scope="col">Категория</th>
+              <th scope="col" class="d-none d-md-table-cell">Накрутчик</th>
+              <th scope="col" class="d-none d-sm-table-cell">Дата</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-hall="hall-boulder" data-level="easy">
+              <td><span class="route-dot orange me-2" role="img" aria-label="оранжевый"></span><strong>Рыжий кот</strong> <span class="badge text-bg-primary ms-1">Новая</span></td>
+              <td>Боулдеринг</td>
+              <td><span class="grade grade-easy">5a</span></td>
+              <td class="d-none d-md-table-cell text-body-secondary">Илья М.</td>
+              <td class="d-none d-sm-table-cell text-body-secondary">10.11</td>
+            </tr>
+            <tr data-hall="hall-boulder" data-level="easy">
+              <td><span class="route-dot yellow me-2" role="img" aria-label="жёлтый"></span><strong>Медовый путь</strong> <span class="badge text-bg-primary ms-1">Новая</span></td>
+              <td>Боулдеринг</td>
+              <td><span class="grade grade-easy">4</span></td>
+              <td class="d-none d-md-table-cell text-body-secondary">Анна Л.</td>
+              <td class="d-none d-sm-table-cell text-body-secondary">10.11</td>
+            </tr>
+            <tr data-hall="hall-boulder" data-level="mid">
+              <td><span class="route-dot violet me-2" role="img" aria-label="фиолетовый"></span><strong>Фиолетовый туман</strong> <span class="badge text-bg-primary ms-1">Новая</span></td>
+              <td>Боулдеринг</td>
+              <td><span class="grade grade-mid">6b+</span></td>
+              <td class="d-none d-md-table-cell text-body-secondary">Илья М.</td>
+              <td class="d-none d-sm-table-cell text-body-secondary">10.11</td>
+            </tr>
+            <tr data-hall="hall-boulder" data-level="pro">
+              <td><span class="route-dot black me-2" role="img" aria-label="чёрный"></span><strong>Крыша мира</strong></td>
+              <td>Боулдеринг</td>
+              <td><span class="grade grade-pro">7A</span></td>
+              <td class="d-none d-md-table-cell text-body-secondary">Тимур К.</td>
+              <td class="d-none d-sm-table-cell text-body-secondary">03.11</td>
+            </tr>
+            <tr data-hall="hall-boulder" data-level="hard">
+              <td><span class="route-dot teal me-2" role="img" aria-label="бирюзовый"></span><strong>Бирюза</strong></td>
+              <td>Боулдеринг</td>
+              <td><span class="grade grade-hard">6c</span></td>
+              <td class="d-none d-md-table-cell text-body-secondary">Тимур К.</td>
+              <td class="d-none d-sm-table-cell text-body-secondary">03.11</td>
+            </tr>
+            <tr data-hall="hall-lead" data-level="easy">
+              <td><span class="route-dot green me-2" role="img" aria-label="зелёный"></span><strong>Первые шаги</strong></td>
+              <td>Трудность</td>
+              <td><span class="grade grade-easy">4+</span></td>
+              <td class="d-none d-md-table-cell text-body-secondary">Дарья С.</td>
+              <td class="d-none d-sm-table-cell text-body-secondary">07.11</td>
+            </tr>
+            <tr data-hall="hall-lead" data-level="mid">
+              <td><span class="route-dot pink me-2" role="img" aria-label="розовый"></span><strong>Фламинго</strong></td>
+              <td>Трудность</td>
+              <td><span class="grade grade-mid">6a</span></td>
+              <td class="d-none d-md-table-cell text-body-secondary">Анна Л.</td>
+              <td class="d-none d-sm-table-cell text-body-secondary">07.11</td>
+            </tr>
+            <tr data-hall="hall-lead" data-level="pro">
+              <td><span class="route-dot white me-2" role="img" aria-label="белый"></span><strong>Северная стена</strong></td>
+              <td>Трудность</td>
+              <td><span class="grade grade-pro">7a+</span></td>
+              <td class="d-none d-md-table-cell text-body-secondary">Анна Л.</td>
+              <td class="d-none d-sm-table-cell text-body-secondary">07.11</td>
+            </tr>
+            <tr data-hall="hall-lead" data-level="mid">
+              <td><span class="route-dot yellow me-2" role="img" aria-label="жёлтый"></span><strong>Солнечный ветер</strong></td>
+              <td>Трудность</td>
+              <td><span class="grade grade-mid">6b</span></td>
+              <td class="d-none d-md-table-cell text-body-secondary">Илья М.</td>
+              <td class="d-none d-sm-table-cell text-body-secondary">31.10</td>
+            </tr>
+            <tr data-hall="hall-kids" data-level="easy">
+              <td><span class="route-dot blue me-2" role="img" aria-label="синий"></span><strong>Синий кит</strong></td>
+              <td>Детский</td>
+              <td><span class="grade grade-easy">4</span></td>
+              <td class="d-none d-md-table-cell text-body-secondary">Дарья С.</td>
+              <td class="d-none d-sm-table-cell text-body-secondary">05.11</td>
+            </tr>
+            <tr data-hall="hall-kids" data-level="easy">
+              <td><span class="route-dot green me-2" role="img" aria-label="зелёный"></span><strong>Лягушонок</strong></td>
+              <td>Детский</td>
+              <td><span class="grade grade-easy">3</span></td>
+              <td class="d-none d-md-table-cell text-body-secondary">Дарья С.</td>
+              <td class="d-none d-sm-table-cell text-body-secondary">05.11</td>
+            </tr>
+            <tr data-hall="hall-kids" data-level="mid">
+              <td><span class="route-dot pink me-2" role="img" aria-label="розовый"></span><strong>Ракета</strong></td>
+              <td>Детский</td>
+              <td><span class="grade grade-mid">5b</span></td>
+              <td class="d-none d-md-table-cell text-body-secondary">Дарья С.</td>
+              <td class="d-none d-sm-table-cell text-body-secondary">05.11</td>
+            </tr>
+            <tr data-hall="hall-training" data-level="hard">
+              <td><span class="route-dot orange me-2" role="img" aria-label="оранжевый"></span><strong>Системка #12</strong></td>
+              <td>Тренажёрная</td>
+              <td><span class="grade grade-hard">6c+</span></td>
+              <td class="d-none d-md-table-cell text-body-secondary">Тимур К.</td>
+              <td class="d-none d-sm-table-cell text-body-secondary">01.11</td>
+            </tr>
+            <tr data-hall="hall-training" data-level="pro">
+              <td><span class="route-dot black me-2" role="img" aria-label="чёрный"></span><strong>Кампус-лестница</strong></td>
+              <td>Тренажёрная</td>
+              <td><span class="grade grade-pro">7b</span></td>
+              <td class="d-none d-md-table-cell text-body-secondary">Тимур К.</td>
+              <td class="d-none d-sm-table-cell text-body-secondary">01.11</td>
+            </tr>
+            <tr id="routesEmpty" class="d-none"><td colspan="5" class="text-center text-body-secondary py-4">По выбранным условиям трасс нет — попробуйте другой зал.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Правила -->
+    <section class="bg-chalk section" id="rules">
+      <div class="container">
+        <div class="row g-4 g-lg-5">
+          <div class="col-12 col-lg-4">
+            <p class="eyebrow mb-2">Безопасность</p>
+            <h2 class="display-6 mb-3">Правила зала</h2>
+            <p class="text-body-secondary">Скалолазание безопасно, если соблюдать несколько простых правил. Их объясняют на инструктаже перед первым посещением.</p>
+            <a class="btn btn-primary" href="product.html">Пройти вводное занятие</a>
+          </div>
+          <div class="col-12 col-lg-8">
+            <div class="accordion" id="rulesAccordion">
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#r1" aria-expanded="true" aria-controls="r1"><i class="bi bi-layers me-2 text-orange" aria-hidden="true"></i>Боулдеринг</button>
+                </h3>
+                <div id="r1" class="accordion-collapse collapse show" data-bs-parent="#rulesAccordion">
+                  <div class="accordion-body">Не стойте и не сидите на матах под лазающим. Спрыгивайте на ноги и перекатывайтесь на спину, не выставляя руки. Одна трасса — один скалолаз.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#r2" aria-expanded="false" aria-controls="r2"><i class="bi bi-link-45deg me-2 text-orange" aria-hidden="true"></i>Лазание с верёвкой</button>
+                </h3>
+                <div id="r2" class="accordion-collapse collapse" data-bs-parent="#rulesAccordion">
+                  <div class="accordion-body">Только при наличии допуска. Перед стартом партнёры проверяют друг у друга узел, систему и страховочное устройство. Новичкам — автостраховки.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#r3" aria-expanded="false" aria-controls="r3"><i class="bi bi-emoji-smile me-2 text-orange" aria-hidden="true"></i>Дети в зале</button>
+                </h3>
+                <div id="r3" class="accordion-collapse collapse" data-bs-parent="#rulesAccordion">
+                  <div class="accordion-body">Дети до 14 лет находятся в зале под присмотром тренера или родителя, прошедшего инструктаж. Для малышей есть отдельный детский зал.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#r4" aria-expanded="false" aria-controls="r4"><i class="bi bi-slash-circle me-2 text-orange" aria-hidden="true"></i>Что запрещено</button>
+                </h3>
+                <div id="r4" class="accordion-collapse collapse" data-bs-parent="#rulesAccordion">
+                  <div class="accordion-body">Лазать в уличной обуви и босиком, с кольцами и часами, находиться в зале с едой и стеклянной посудой, самостоятельно перекручивать зацепы.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer pt-5 pb-4">
+    <div class="container">
+      <div class="row g-4 pb-4">
+        <div class="col-12 col-lg-4">
+          <a class="d-inline-flex align-items-center gap-2 mb-3 text-white fs-4 font-display fw-bold" href="index.html">
+            <img src="images/logo.svg" alt="" width="40" height="40">Зацеп
+          </a>
+          <p class="mb-4">Скалодром для тех, кто только начинает, и для тех, кто давно лазает. Боулдеринг, трудность, детские секции и соревнования.</p>
+          <div class="d-flex gap-2">
+            <a class="social-link" href="#" aria-label="Мы в Telegram"><i class="bi bi-telegram" aria-hidden="true"></i></a>
+            <a class="social-link" href="#" aria-label="Мы на YouTube"><i class="bi bi-youtube" aria-hidden="true"></i></a>
+            <a class="social-link" href="#" aria-label="Написать в WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2">
+          <h2 class="mb-3">Скалодром</h2>
+          <ul class="list-unstyled d-grid gap-2 mb-0">
+            <li><a href="halls.html">Залы и трассы</a></li>
+            <li><a href="catalog.html">Абонементы</a></li>
+            <li><a href="product.html">Вводное занятие</a></li>
+            <li><a href="kids.html#competitions">Соревнования</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2">
+          <h2 class="mb-3">Посетителям</h2>
+          <ul class="list-unstyled d-grid gap-2 mb-0">
+            <li><a href="order.html">Запись онлайн</a></li>
+            <li><a href="kids.html#sections">Детские секции</a></li>
+            <li><a href="kids.html#birthday">Дни рождения</a></li>
+            <li><a href="halls.html#rules">Правила зала</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-4 col-lg-4">
+          <h2 class="mb-3">Контакты</h2>
+          <ul class="list-unstyled d-grid gap-2 mb-0">
+            <li><i class="bi bi-geo-alt me-2 text-orange" aria-hidden="true"></i>Москва, ул. Промышленная, 14, корп. 2</li>
+            <li><i class="bi bi-telephone me-2 text-orange" aria-hidden="true"></i><a href="tel:+74951234567">+7 (495) 123-45-67</a></li>
+            <li><i class="bi bi-envelope me-2 text-orange" aria-hidden="true"></i><a href="mailto:hello@zacep-climb.ru">hello@zacep-climb.ru</a></li>
+            <li><i class="bi bi-clock me-2 text-orange" aria-hidden="true"></i>Ежедневно 7:00–23:00</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-top border-secondary-subtle pt-4 d-flex flex-column flex-md-row justify-content-between gap-2 small">
+        <p class="mb-0">&copy; <span data-year>2026</span> Скалодром «Зацеп». Учебный проект КР №2.</p>
+        <p class="mb-0"><a href="contacts.html">Политика конфиденциальности</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal fade" id="quickBookModal" tabindex="-1" aria-labelledby="quickBookLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 rounded-4">
+        <div class="modal-header border-0 pb-0">
+          <div>
+            <h2 class="modal-title h5" id="quickBookLabel">Быстрая запись</h2>
+            <p class="text-body-secondary small mb-0">Перезвоним за 15 минут и подберём время</p>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+        </div>
+
+        <form class="needs-validation" novalidate data-success-title="Заявка принята" data-success-text="{name}администратор позвонит вам в течение 15 минут и подтвердит запись.">
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="quick-name" class="form-label">Имя</label>
+              <input id="quick-name" name="name" type="text" class="form-control" autocomplete="given-name" required>
+              <div class="invalid-feedback">Как к вам обращаться?</div>
+            </div>
+            <div class="mb-3">
+              <label for="quick-phone" class="form-label">Телефон</label>
+              <div class="input-group has-validation">
+                <span class="input-group-text">+7</span>
+                <input id="quick-phone" name="phone" type="tel" class="form-control" placeholder="900 000-00-00" pattern="[0-9\s\-\(\)]{10,15}" autocomplete="tel-national" required>
+                <div class="invalid-feedback">Укажите номер из 10 цифр.</div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="quick-service" class="form-label">Что вас интересует</label>
+              <select id="quick-service" name="service" class="form-select">
+                  <optgroup label="Посещения">
+                    <option value="intro" data-price="2400" data-gear="included">Вводное занятие «Первый зацеп»</option>
+                    <option value="single" data-price="1200">Разовое посещение</option>
+                    <option value="single-morning" data-price="900">Разовое утром (будни до 16:00)</option>
+                  </optgroup>
+                  <optgroup label="Абонементы">
+                    <option value="sub-8" data-price="6400">8 посещений (действует 2 месяца)</option>
+                    <option value="sub-month" data-price="7900">Безлимит на месяц</option>
+                    <option value="sub-morning" data-price="4900">Утренний безлимит на месяц</option>
+                    <option value="sub-student" data-price="5500">Студенческий безлимит на месяц</option>
+                    <option value="sub-year" data-price="59000">Безлимит на год</option>
+                  </optgroup>
+                  <optgroup label="Тренировки">
+                    <option value="personal" data-price="3500">Персональная тренировка, 60 мин</option>
+                    <option value="group-start" data-price="9600">Группа «Старт», 8 занятий</option>
+                    <option value="group-tech" data-price="11200">Группа «Техника», 8 занятий</option>
+                    <option value="lead-course" data-price="14900">Курс нижней страховки, 4 занятия</option>
+                  </optgroup>
+                  <optgroup label="Детям и события">
+                    <option value="kids-trial" data-price="0" data-gear="included">Пробное детское занятие</option>
+                    <option value="kids-5" data-price="7200" data-gear="included">Детская секция 5–7 лет, месяц</option>
+                    <option value="kids-8" data-price="8000" data-gear="included">Детская секция 8–14 лет, месяц</option>
+                    <option value="birthday" data-price="24000" data-gear="included">День рождения «Приключение»</option>
+                    <option value="competition" data-price="1500">Участие в «Зацеп Open»</option>
+                  </optgroup>
+              </select>
+            </div>
+            <div class="form-check">
+              <input id="quick-agree" name="agree" class="form-check-input" type="checkbox" required>
+              <label class="form-check-label small" for="quick-agree">Согласен(на) на обработку персональных данных</label>
+              <div class="invalid-feedback">Без согласия мы не сможем перезвонить.</div>
+            </div>
+          </div>
+          <div class="modal-footer border-0 pt-0">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Отмена</button>
+            <button type="submit" class="btn btn-primary">Жду звонка</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="siteToast" class="toast border-0 shadow" role="status" aria-live="polite" aria-atomic="true">
+      <div class="toast-header">
+        <span class="badge text-bg-success rounded-pill me-2"><i class="bi bi-check-lg" aria-hidden="true"></i></span>
+        <strong class="me-auto" data-toast-title>Готово</strong>
+        <small>сейчас</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+      </div>
+      <div class="toast-body" data-toast-text></div>
+    </div>
+  </div>
+
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

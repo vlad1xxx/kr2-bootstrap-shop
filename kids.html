@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Детям и события — скалодром «Зацеп»</title>
+  <meta name="description" content="Детские секции по скалолазанию с 5 лет, дни рождения на скалодроме и любительские соревнования «Зацеп Open».">
+  <meta name="theme-color" content="#15171c">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+  <!-- Bootstrap 5.3.8 и иконки подключены локально (папка vendor/) -->
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <!-- Собственные стили подключаются после Bootstrap -->
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+
+  <a class="skip-link visually-hidden-focusable btn btn-primary" href="#main">Перейти к содержимому</a>
+
+  <div class="topbar py-2 d-none d-md-block">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-8">
+          <span class="me-4"><i class="bi bi-geo-alt me-1" aria-hidden="true"></i>Москва, ул. Промышленная, 14, корп. 2</span>
+          <span><i class="bi bi-clock me-1" aria-hidden="true"></i>Ежедневно 7:00–23:00</span>
+        </div>
+        <div class="col-md-4 text-md-end">
+          <a href="tel:+74951234567" class="fw-semibold"><i class="bi bi-telephone me-1" aria-hidden="true"></i>+7 (495) 123-45-67</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-expand-lg site-navbar sticky-top py-2" aria-label="Основное меню">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="images/logo.svg" alt="" width="38" height="38">
+        Зацеп
+      </a>
+
+      <button
+        class="navbar-toggler border-0"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNavbar"
+        aria-controls="mainNavbar"
+        aria-expanded="false"
+        aria-label="Переключить навигацию"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav mx-auto gap-lg-1">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Главная</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="halls.html">Залы и трассы</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="catalog.html">Абонементы и цены</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="product.html">Новичкам</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="kids.html" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-current="page">
+              Детям и события
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="kids.html#sections"><i class="bi bi-emoji-smile me-2" aria-hidden="true"></i>Детские секции</a></li>
+              <li><a class="dropdown-item" href="kids.html#birthday"><i class="bi bi-balloon me-2" aria-hidden="true"></i>Дни рождения</a></li>
+              <li><a class="dropdown-item" href="kids.html#competitions"><i class="bi bi-trophy me-2" aria-hidden="true"></i>Соревнования</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="catalog.html?cat=kids"><i class="bi bi-tag me-2" aria-hidden="true"></i>Цены для детей</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contacts.html">Контакты</a>
+          </li>
+        </ul>
+        <div class="d-flex flex-column flex-lg-row gap-2">
+          <a class="btn btn-primary" href="order.html">
+            <i class="bi bi-calendar2-check me-1" aria-hidden="true"></i>Записаться
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <section class="page-header py-5">
+      <div class="container py-lg-4">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb mb-3">
+            <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Детям и события</li>
+          </ol>
+        </nav>
+        <div class="row">
+          <div class="col-12 col-lg-8">
+            <p class="eyebrow text-warning mb-2">Секции · праздники · соревнования</p>
+            <h1 class="display-5 mb-3">Детям и события</h1>
+            <p class="lead mb-0">Детские секции с 5 лет, дни рождения на скалодроме и любительские соревнования для всех уровней.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Быстрая навигация по разделу -->
+    <div class="bg-white border-bottom">
+      <div class="container">
+        <nav class="nav nav-underline gap-4 py-2 overflow-auto flex-nowrap" aria-label="Разделы страницы">
+          <a class="nav-link text-nowrap" href="#sections"><i class="bi bi-emoji-smile me-1" aria-hidden="true"></i>Детские секции</a>
+          <a class="nav-link text-nowrap" href="#birthday"><i class="bi bi-balloon me-1" aria-hidden="true"></i>Дни рождения</a>
+          <a class="nav-link text-nowrap" href="#competitions"><i class="bi bi-trophy me-1" aria-hidden="true"></i>Соревнования</a>
+          <a class="nav-link text-nowrap" href="#parents"><i class="bi bi-question-circle me-1" aria-hidden="true"></i>Вопросы родителей</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Детские секции -->
+    <section class="container section" id="sections">
+      <div class="row g-4 g-lg-5 align-items-center mb-5">
+        <div class="col-12 col-lg-6">
+          <p class="eyebrow mb-2">Детские секции</p>
+          <h2 class="display-6 mb-3">Лазание развивает не только мышцы</h2>
+          <p class="text-body-secondary">Скалолазание учит ребёнка планировать, концентрироваться и не бояться трудностей. Тренировки проходят в отдельном детском зале с автостраховками, группы небольшие — тренер успевает уделить внимание каждому.</p>
+          <div class="alert alert-success d-flex gap-2 rounded-4" role="alert">
+            <i class="bi bi-gift-fill flex-shrink-0" aria-hidden="true"></i>
+            <div><strong>Пробное занятие — бесплатно.</strong> Познакомьтесь с тренером и группой, прежде чем покупать абонемент.</div>
+          </div>
+          <button class="btn btn-primary btn-lg" type="button" data-bs-toggle="modal" data-bs-target="#quickBookModal" data-service="kids-trial">Записать ребёнка на пробное</button>
+        </div>
+        <div class="col-12 col-lg-6">
+          <img src="images/hall-kids.svg" class="img-fluid rounded-4 shadow-sm w-100" alt="Детский зал с яркими крупными зацепами" width="900" height="600">
+        </div>
+      </div>
+
+      <div class="row g-4 mb-5">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body p-4 d-flex flex-column">
+              <span class="badge text-bg-warning align-self-start mb-3">5–7 лет</span>
+              <h3 class="h5">«Скалята»</h3>
+              <p class="text-body-secondary">Игровые тренировки: лазание по цветным трассам, полоса препятствий, общая координация.</p>
+              <ul class="list-check small mb-4">
+                <li>2 раза в неделю по 60 минут</li>
+                <li>До 8 детей, 2 тренера</li>
+                <li>Родители могут смотреть из зоны ожидания</li>
+              </ul>
+              <p class="price mt-auto mb-3">7&nbsp;200&nbsp;₽ <small>/ месяц</small></p>
+              <a class="btn btn-outline-primary" href="order.html?service=kids-5">Записаться</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card card-featured h-100 shadow">
+            <div class="card-body p-4 d-flex flex-column">
+              <span class="badge text-bg-warning align-self-start mb-3">8–14 лет · Популярно</span>
+              <h3 class="h5">«Юниор»</h3>
+              <p class="text-body-secondary">Техника, страховка, силовая подготовка и участие в детских соревнованиях.</p>
+              <ul class="list-check small mb-4">
+                <li>2 раза в неделю по 90 минут</li>
+                <li>До 10 детей в группе</li>
+                <li>Выезды на скалы летом</li>
+              </ul>
+              <p class="price mt-auto mb-3">8&nbsp;000&nbsp;₽ <small>/ месяц</small></p>
+              <a class="btn btn-primary" href="order.html?service=kids-8">Записаться</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-12 col-lg-4">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body p-4 d-flex flex-column">
+              <span class="badge text-bg-dark align-self-start mb-3">14–17 лет</span>
+              <h3 class="h5">«Подростки»</h3>
+              <p class="text-body-secondary">Подготовка к самостоятельному лазанию: допуск к страховке, работа на трудности и боулдеринге.</p>
+              <ul class="list-check small mb-4">
+                <li>3 раза в неделю по 90 минут</li>
+                <li>До 10 человек</li>
+                <li>Экзамен на допуск к страховке</li>
+              </ul>
+              <p class="price mt-auto mb-3">8&nbsp;800&nbsp;₽ <small>/ месяц</small></p>
+              <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#quickBookModal" data-service="kids-trial">Записаться на пробное</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="h4 mb-3">Расписание групп</h3>
+      <div class="table-responsive border rounded-4">
+        <table class="table table-striped align-middle mb-0">
+          <thead class="table-light">
+            <tr><th scope="col">Группа</th><th scope="col">Дни</th><th scope="col">Время</th><th scope="col" class="d-none d-md-table-cell">Тренер</th><th scope="col">Места</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>«Скалята» 5–7</strong></td><td>Вт, Чт</td><td>17:00–18:00</td><td class="d-none d-md-table-cell">Дарья Соколова</td><td><span class="badge text-bg-success">3 места</span></td></tr>
+            <tr><td><strong>«Скалята» 5–7</strong></td><td>Сб, Вс</td><td>11:00–12:00</td><td class="d-none d-md-table-cell">Дарья Соколова</td><td><span class="badge text-bg-danger">Мест нет</span></td></tr>
+            <tr><td><strong>«Юниор» 8–14</strong></td><td>Пн, Ср</td><td>17:30–19:00</td><td class="d-none d-md-table-cell">Илья Мартынов</td><td><span class="badge text-bg-warning">1 место</span></td></tr>
+            <tr><td><strong>«Юниор» 8–14</strong></td><td>Сб, Вс</td><td>12:30–14:00</td><td class="d-none d-md-table-cell">Анна Лебедева</td><td><span class="badge text-bg-success">4 места</span></td></tr>
+            <tr><td><strong>«Подростки» 14–17</strong></td><td>Пн, Ср, Пт</td><td>19:00–20:30</td><td class="d-none d-md-table-cell">Анна Лебедева</td><td><span class="badge text-bg-success">5 мест</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Дни рождения -->
+    <section class="bg-chalk section" id="birthday">
+      <div class="container">
+        <div class="text-center mb-5">
+          <p class="eyebrow mb-2">Дни рождения</p>
+          <h2 class="display-6 mb-3">Праздник, который запомнится</h2>
+          <p class="text-body-secondary mb-0">Инструктор-аниматор, лазание, квест и отдельная комната с чаепитием. Подходит для детей от 5 лет и взрослых компаний.</p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm border-0">
+              <div class="card-body p-4 d-flex flex-column">
+                <h3 class="h5">«Мини»</h3>
+                <p class="text-body-secondary small">1,5 часа · до 8 гостей</p>
+                <ul class="list-check small mb-4">
+                  <li>Инструктор и лазание в детском зале</li>
+                  <li>Комната для праздника 30 минут</li>
+                  <li>Снаряжение включено</li>
+                </ul>
+                <p class="price mt-auto mb-3">18&nbsp;000&nbsp;₽</p>
+                <a class="btn btn-outline-primary" href="order.html?service=birthday">Забронировать</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100 shadow border-primary border-2">
+              <div class="card-img-wrap">
+                <img src="images/birthday.svg" class="card-img-top" alt="" width="900" height="600">
+                <span class="badge text-bg-primary">Выбирают чаще всего</span>
+              </div>
+              <div class="card-body p-4 d-flex flex-column">
+                <h3 class="h5">«Приключение»</h3>
+                <p class="text-body-secondary small">2 часа · до 10 гостей</p>
+                <ul class="list-check small mb-4">
+                  <li>Всё из пакета «Мини»</li>
+                  <li>Квест «Найди сокровище на стене»</li>
+                  <li>Комната для праздника 1 час</li>
+                  <li>Медали для всех гостей</li>
+                </ul>
+                <p class="price mt-auto mb-3">24&nbsp;000&nbsp;₽</p>
+                <a class="btn btn-primary" href="order.html?service=birthday">Забронировать</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-12 col-lg-4">
+            <div class="card h-100 shadow-sm border-0">
+              <div class="card-body p-4 d-flex flex-column">
+                <h3 class="h5">«Максимум»</h3>
+                <p class="text-body-secondary small">3 часа · до 15 гостей</p>
+                <ul class="list-check small mb-4">
+                  <li>Всё из пакета «Приключение»</li>
+                  <li>Подъём на 16-метровую стену</li>
+                  <li>Фотограф и 50 обработанных фото</li>
+                  <li>Торт от партнёрской кондитерской</li>
+                </ul>
+                <p class="price mt-auto mb-3">36&nbsp;000&nbsp;₽</p>
+                <a class="btn btn-outline-primary" href="order.html?service=birthday">Забронировать</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Соревнования -->
+    <section class="container section" id="competitions">
+      <div class="row g-4 g-lg-5">
+        <div class="col-12 col-lg-4">
+          <p class="eyebrow mb-2">Соревнования</p>
+          <h2 class="display-6 mb-3">Календарь событий</h2>
+          <p class="text-body-secondary">Проводим любительские фестивали каждый месяц и детские кубки раз в сезон. Участвовать может каждый — категории делятся по уровню.</p>
+          <img src="images/events.svg" class="img-fluid rounded-4 shadow-sm mt-2" alt="Соревновательная стена с разноцветными трассами" width="900" height="600">
+        </div>
+        <div class="col-12 col-lg-8">
+          <div class="d-grid gap-3">
+            <article class="card border-0 shadow-sm">
+              <div class="card-body p-4">
+                <div class="row g-3 align-items-center">
+                  <div class="col-auto">
+                    <div class="bg-primary text-white rounded-3 text-center px-3 py-2">
+                      <div class="font-display fw-bold fs-4 lh-1">29</div><div class="small">ноя</div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="d-flex flex-wrap gap-2 mb-1"><span class="badge text-bg-success">Регистрация открыта</span><span class="badge text-bg-light border">Боулдеринг</span></div>
+                    <h3 class="h5 mb-1">Фестиваль «Зацеп Open»</h3>
+                    <p class="small text-body-secondary mb-0">30 новых трасс, три категории: новички, любители, открытая. Финал в 19:00.</p>
+                  </div>
+                  <div class="col-12 col-md-auto">
+                    <a class="btn btn-primary w-100" href="order.html?service=competition">Участвовать · 1&nbsp;500&nbsp;₽</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="card border-0 shadow-sm">
+              <div class="card-body p-4">
+                <div class="row g-3 align-items-center">
+                  <div class="col-auto">
+                    <div class="bg-ink text-white rounded-3 text-center px-3 py-2">
+                      <div class="font-display fw-bold fs-4 lh-1">13</div><div class="small">дек</div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="d-flex flex-wrap gap-2 mb-1"><span class="badge text-bg-warning">Скоро</span><span class="badge text-bg-light border">Дети 6–14</span></div>
+                    <h3 class="h5 mb-1">Детский кубок «Новогодний зацеп»</h3>
+                    <p class="small text-body-secondary mb-0">Лазание на трудность с автостраховкой, подарки всем участникам.</p>
+                  </div>
+                  <div class="col-12 col-md-auto">
+                    <button class="btn btn-outline-primary w-100" type="button" data-bs-toggle="modal" data-bs-target="#quickBookModal" data-service="competition">Предзапись</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="card border-0 shadow-sm">
+              <div class="card-body p-4">
+                <div class="row g-3 align-items-center">
+                  <div class="col-auto">
+                    <div class="bg-ink text-white rounded-3 text-center px-3 py-2">
+                      <div class="font-display fw-bold fs-4 lh-1">24</div><div class="small">янв</div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="d-flex flex-wrap gap-2 mb-1"><span class="badge text-bg-warning">Скоро</span><span class="badge text-bg-light border">Трудность</span></div>
+                    <h3 class="h5 mb-1">Ночная трудность</h3>
+                    <p class="small text-body-secondary mb-0">Лазание на 16-метровой стене при свете фонариков. Только для участников с допуском.</p>
+                  </div>
+                  <div class="col-12 col-md-auto">
+                    <button class="btn btn-outline-secondary w-100" type="button" disabled>Откроется 1 декабря</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="card border-0 shadow-sm opacity-75">
+              <div class="card-body p-4">
+                <div class="row g-3 align-items-center">
+                  <div class="col-auto">
+                    <div class="bg-secondary text-white rounded-3 text-center px-3 py-2">
+                      <div class="font-display fw-bold fs-4 lh-1">25</div><div class="small">окт</div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="d-flex flex-wrap gap-2 mb-1"><span class="badge text-bg-secondary">Завершено</span></div>
+                    <h3 class="h5 mb-1">Осенний боулдер-марафон</h3>
+                    <p class="small text-body-secondary mb-0">84 участника. Победители: Тимур К. (открытая), Марина Р. (любители), Олег В. (новички).</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Вопросы родителей -->
+    <section class="bg-chalk section" id="parents">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-9">
+            <h2 class="display-6 mb-4 text-center">Вопросы родителей</h2>
+            <div class="accordion" id="parentsFaq">
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#p1" aria-expanded="true" aria-controls="p1">Это безопасно для ребёнка?</button>
+                </h3>
+                <div id="p1" class="accordion-collapse collapse show" data-bs-parent="#parentsFaq">
+                  <div class="accordion-body">Дети лазают только с автостраховкой или над матами в боулдеринге, под контролем двух тренеров. Снаряжение сертифицировано и проверяется ежедневно.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#p2" aria-expanded="false" aria-controls="p2">Нужна ли медицинская справка?</button>
+                </h3>
+                <div id="p2" class="accordion-collapse collapse" data-bs-parent="#parentsFaq">
+                  <div class="accordion-body">Для секции — да, справка от педиатра о допуске к занятиям спортом. Для разового посещения или праздника справка не нужна, достаточно согласия родителя.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#p3" aria-expanded="false" aria-controls="p3">Что делать, если ребёнок пропустил занятие?</button>
+                </h3>
+                <div id="p3" class="accordion-collapse collapse" data-bs-parent="#parentsFaq">
+                  <div class="accordion-body">Пропущенное занятие можно отработать в другой группе того же возраста в течение месяца. По болезни со справкой абонемент продлевается.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#p4" aria-expanded="false" aria-controls="p4">Можно ли родителям лазать вместе с ребёнком?</button>
+                </h3>
+                <div id="p4" class="accordion-collapse collapse" data-bs-parent="#parentsFaq">
+                  <div class="accordion-body">Да, в выходные с 10:00 до 14:00 действуют семейные часы: родитель с ребёнком лазают по одному разовому билету для взрослого, ребёнок — бесплатно.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer pt-5 pb-4">
+    <div class="container">
+      <div class="row g-4 pb-4">
+        <div class="col-12 col-lg-4">
+          <a class="d-inline-flex align-items-center gap-2 mb-3 text-white fs-4 font-display fw-bold" href="index.html">
+            <img src="images/logo.svg" alt="" width="40" height="40">Зацеп
+          </a>
+          <p class="mb-4">Скалодром для тех, кто только начинает, и для тех, кто давно лазает. Боулдеринг, трудность, детские секции и соревнования.</p>
+          <div class="d-flex gap-2">
+            <a class="social-link" href="#" aria-label="Мы в Telegram"><i class="bi bi-telegram" aria-hidden="true"></i></a>
+            <a class="social-link" href="#" aria-label="Мы на YouTube"><i class="bi bi-youtube" aria-hidden="true"></i></a>
+            <a class="social-link" href="#" aria-label="Написать в WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2">
+          <h2 class="mb-3">Скалодром</h2>
+          <ul class="list-unstyled d-grid gap-2 mb-0">
+            <li><a href="halls.html">Залы и трассы</a></li>
+            <li><a href="catalog.html">Абонементы</a></li>
+            <li><a href="product.html">Вводное занятие</a></li>
+            <li><a href="kids.html#competitions">Соревнования</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2">
+          <h2 class="mb-3">Посетителям</h2>
+          <ul class="list-unstyled d-grid gap-2 mb-0">
+            <li><a href="order.html">Запись онлайн</a></li>
+            <li><a href="kids.html#sections">Детские секции</a></li>
+            <li><a href="kids.html#birthday">Дни рождения</a></li>
+            <li><a href="halls.html#rules">Правила зала</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-4 col-lg-4">
+          <h2 class="mb-3">Контакты</h2>
+          <ul class="list-unstyled d-grid gap-2 mb-0">
+            <li><i class="bi bi-geo-alt me-2 text-orange" aria-hidden="true"></i>Москва, ул. Промышленная, 14, корп. 2</li>
+            <li><i class="bi bi-telephone me-2 text-orange" aria-hidden="true"></i><a href="tel:+74951234567">+7 (495) 123-45-67</a></li>
+            <li><i class="bi bi-envelope me-2 text-orange" aria-hidden="true"></i><a href="mailto:hello@zacep-climb.ru">hello@zacep-climb.ru</a></li>
+            <li><i class="bi bi-clock me-2 text-orange" aria-hidden="true"></i>Ежедневно 7:00–23:00</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-top border-secondary-subtle pt-4 d-flex flex-column flex-md-row justify-content-between gap-2 small">
+        <p class="mb-0">&copy; <span data-year>2026</span> Скалодром «Зацеп». Учебный проект КР №2.</p>
+        <p class="mb-0"><a href="contacts.html">Политика конфиденциальности</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal fade" id="quickBookModal" tabindex="-1" aria-labelledby="quickBookLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 rounded-4">
+        <div class="modal-header border-0 pb-0">
+          <div>
+            <h2 class="modal-title h5" id="quickBookLabel">Быстрая запись</h2>
+            <p class="text-body-secondary small mb-0">Перезвоним за 15 минут и подберём время</p>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+        </div>
+
+        <form class="needs-validation" novalidate data-success-title="Заявка принята" data-success-text="{name}администратор позвонит вам в течение 15 минут и подтвердит запись.">
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="quick-name" class="form-label">Имя</label>
+              <input id="quick-name" name="name" type="text" class="form-control" autocomplete="given-name" required>
+              <div class="invalid-feedback">Как к вам обращаться?</div>
+            </div>
+            <div class="mb-3">
+              <label for="quick-phone" class="form-label">Телефон</label>
+              <div class="input-group has-validation">
+                <span class="input-group-text">+7</span>
+                <input id="quick-phone" name="phone" type="tel" class="form-control" placeholder="900 000-00-00" pattern="[0-9\s\-\(\)]{10,15}" autocomplete="tel-national" required>
+                <div class="invalid-feedback">Укажите номер из 10 цифр.</div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="quick-service" class="form-label">Что вас интересует</label>
+              <select id="quick-service" name="service" class="form-select">
+                  <optgroup label="Посещения">
+                    <option value="intro" data-price="2400" data-gear="included">Вводное занятие «Первый зацеп»</option>
+                    <option value="single" data-price="1200">Разовое посещение</option>
+                    <option value="single-morning" data-price="900">Разовое утром (будни до 16:00)</option>
+                  </optgroup>
+                  <optgroup label="Абонементы">
+                    <option value="sub-8" data-price="6400">8 посещений (действует 2 месяца)</option>
+                    <option value="sub-month" data-price="7900">Безлимит на месяц</option>
+                    <option value="sub-morning" data-price="4900">Утренний безлимит на месяц</option>
+                    <option value="sub-student" data-price="5500">Студенческий безлимит на месяц</option>
+                    <option value="sub-year" data-price="59000">Безлимит на год</option>
+                  </optgroup>
+                  <optgroup label="Тренировки">
+                    <option value="personal" data-price="3500">Персональная тренировка, 60 мин</option>
+                    <option value="group-start" data-price="9600">Группа «Старт», 8 занятий</option>
+                    <option value="group-tech" data-price="11200">Группа «Техника», 8 занятий</option>
+                    <option value="lead-course" data-price="14900">Курс нижней страховки, 4 занятия</option>
+                  </optgroup>
+                  <optgroup label="Детям и события">
+                    <option value="kids-trial" data-price="0" data-gear="included">Пробное детское занятие</option>
+                    <option value="kids-5" data-price="7200" data-gear="included">Детская секция 5–7 лет, месяц</option>
+                    <option value="kids-8" data-price="8000" data-gear="included">Детская секция 8–14 лет, месяц</option>
+                    <option value="birthday" data-price="24000" data-gear="included">День рождения «Приключение»</option>
+                    <option value="competition" data-price="1500">Участие в «Зацеп Open»</option>
+                  </optgroup>
+              </select>
+            </div>
+            <div class="form-check">
+              <input id="quick-agree" name="agree" class="form-check-input" type="checkbox" required>
+              <label class="form-check-label small" for="quick-agree">Согласен(на) на обработку персональных данных</label>
+              <div class="invalid-feedback">Без согласия мы не сможем перезвонить.</div>
+            </div>
+          </div>
+          <div class="modal-footer border-0 pt-0">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Отмена</button>
+            <button type="submit" class="btn btn-primary">Жду звонка</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="siteToast" class="toast border-0 shadow" role="status" aria-live="polite" aria-atomic="true">
+      <div class="toast-header">
+        <span class="badge text-bg-success rounded-pill me-2"><i class="bi bi-check-lg" aria-hidden="true"></i></span>
+        <strong class="me-auto" data-toast-title>Готово</strong>
+        <small>сейчас</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+      </div>
+      <div class="toast-body" data-toast-text></div>
+    </div>
+  </div>
+
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
