@@ -220,7 +220,8 @@ html { scroll-padding-top: 90px; }
 /* ---------- 7. Каталог ---------- */
 @media (min-width: 992px) { .filter-bar { position: sticky; top: 76px; z-index: 5; } }
 .catalog-item.is-hidden { display: none !important; }
-.map-box { min-height: 320px; background: #ece8e1 url("../images/map.svg") center / cover no-repeat; }
+.map-frame { min-height: 420px; background: #ece8e1; }
+.map-frame iframe { display: block; width: 100%; height: 100%; min-height: 420px; border: 0; }
 
 /* Сводка заказа */
 .summary-card { position: sticky; top: 96px; }
