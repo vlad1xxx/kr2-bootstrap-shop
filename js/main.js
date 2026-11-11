@@ -297,48 +297,17 @@
     counters.forEach((c) => counterObserver.observe(c.el));
   }
 
-  /* ---------- Кнопка «Наверх» с кольцом прогресса прокрутки ---------- */
-  const toTop = document.createElement('button');
-  toTop.type = 'button';
-  toTop.className = 'to-top';
-  toTop.setAttribute('aria-label', 'Наверх');
-  toTop.title = 'Наверх';
-  toTop.innerHTML =
-    '<svg class="to-top-ring" viewBox="0 0 48 48" aria-hidden="true">'
-    + '<circle class="to-top-track" cx="24" cy="24" r="22"></circle>'
-    + '<circle class="to-top-progress" cx="24" cy="24" r="22"></circle>'
-    + '</svg>'
-    + '<i class="bi bi-arrow-up to-top-arrow" aria-hidden="true"></i>';
-  document.body.appendChild(toTop);
-
-  const ring = $('.to-top-progress', toTop);
-  const ringLength = 2 * Math.PI * 22;
-  ring.style.strokeDasharray = ringLength;
-
+  /* ---------- Тень у шапки при прокрутке ---------- */
   const navbar = $('.site-navbar');
-  let ticking = false;
-  const onScroll = () => {
-    const y = window.scrollY;
-    const max = document.documentElement.scrollHeight - window.innerHeight;
-    const progress = max > 0 ? Math.min(1, y / max) : 0;
-    ring.style.strokeDashoffset = ringLength * (1 - progress);
-    toTop.classList.toggle('is-shown', y > 400);
-    if (navbar) navbar.classList.toggle('is-scrolled', y > 10);
-    ticking = false;
-  };
-  window.addEventListener('scroll', () => {
-    if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
-  }, { passive: true });
-  onScroll();
-
-  toTop.addEventListener('click', () => {
-    toTop.classList.remove('is-launching');
-    void toTop.offsetWidth; // перезапуск анимации при повторном клике
-    toTop.classList.add('is-launching');
-    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
-    // кнопка скроется, поэтому переводим фокус на логотип в шапке
-    const brand = $('.navbar-brand');
-    if (brand) brand.focus({ preventScroll: true });
-  });
-  toTop.addEventListener('animationend', () => toTop.classList.remove('is-launching'));
+  if (navbar) {
+    let ticking = false;
+    const onScroll = () => {
+      navbar.classList.toggle('is-scrolled', window.scrollY > 10);
+      ticking = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
+    }, { passive: true });
+    onScroll();
+  }
 })();
