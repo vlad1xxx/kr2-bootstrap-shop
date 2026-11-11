@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="vendor/bootstrap-icons/bootstrap-icons.min.css">
   <!-- Собственные стили подключаются после Bootstrap -->
   <link rel="stylesheet" href="css/custom.css">
+  <!-- Тема ставится до отрисовки, чтобы не было «вспышки» светлой темы -->
+  <script src="js/theme.js"></script>
 </head>
 <body>
 
@@ -32,7 +34,7 @@
     </div>
   </div>
 
-  <nav class="navbar navbar-expand-lg site-navbar sticky-top py-2" aria-label="Основное меню">
+  <nav class="navbar navbar-expand-xl site-navbar sticky-top py-2" aria-label="Основное меню">
     <div class="container">
       <a class="navbar-brand" href="index.html">
         <img src="images/logo.svg" alt="" width="38" height="38">
@@ -52,7 +54,7 @@
       </button>
 
       <div class="collapse navbar-collapse" id="mainNavbar">
-        <ul class="navbar-nav mx-auto gap-lg-1">
+        <ul class="navbar-nav mx-auto gap-xl-1">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="index.html">Главная</a>
           </li>
@@ -81,7 +83,16 @@
             <a class="nav-link" href="contacts.html">Контакты</a>
           </li>
         </ul>
-        <div class="d-flex flex-column flex-lg-row gap-2">
+        <div class="d-flex align-items-center gap-2 mt-2 mt-xl-0">
+          <button class="btn btn-icon" type="button" data-bs-toggle="modal" data-bs-target="#searchModal" aria-label="Поиск по сайту" title="Поиск по сайту (/)">
+            <i class="bi bi-search" aria-hidden="true"></i>
+          </button>
+          <button class="btn btn-icon" type="button" data-theme-toggle aria-pressed="false" aria-label="Включить тёмную тему" title="Тёмная тема">
+            <i class="bi bi-moon-stars" aria-hidden="true"></i>
+          </button>
+          <a class="btn btn-icon" href="account.html" aria-label="Личный кабинет" title="Личный кабинет">
+            <i class="bi bi-person" aria-hidden="true"></i>
+          </a>
           <a class="btn btn-primary" href="order.html">
             <i class="bi bi-calendar2-check me-1" aria-hidden="true"></i>Записаться
           </a>
@@ -437,53 +448,218 @@
       </div>
     </section>
 
-    <!-- Отзывы: компонент carousel -->
-    <section class="bg-ink text-white section">
+    <!-- Отзывы: сводка рейтинга (progress), карточки (card), фильтр (nav-pills), форма в модальном окне -->
+    <section id="reviews" class="bg-chalk section">
       <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-12 col-lg-9 text-center">
-            <p class="eyebrow text-warning mb-4">Отзывы</p>
-            <div id="reviewsCarousel" class="carousel slide review-carousel" data-bs-ride="carousel" data-bs-interval="7000">
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <p class="review-quote mb-4">«Пришла на вводное, не умея вообще ничего. Через месяц прошла первую шестёрку. Инструкторы очень терпеливые, а атмосфера — как в клубе друзей.»</p>
-                  <p class="mb-0 fw-bold">Марина, 27 лет</p>
-                  <p class="text-white-50 small">лазает 4 месяца</p>
+        <div class="row g-4 g-lg-5">
+          <div class="col-12 col-lg-4">
+            <p class="eyebrow mb-2">Отзывы</p>
+            <h2 class="display-6 mb-4">Что говорят скалолазы</h2>
+            <div class="card border-0 shadow-sm">
+              <div class="card-body p-4">
+                <div class="d-flex align-items-end gap-3 mb-1">
+                  <span class="rating-big" data-rating-avg>4,9</span>
+                  <div class="pb-1">
+                    <div class="stars fs-5" aria-hidden="true">★★★★★</div>
+                    <div class="small text-body-secondary"><span data-rating-total>128 отзывов</span></div>
+                  </div>
                 </div>
-                <div class="carousel-item">
-                  <p class="review-quote mb-4">«Водим сына в секцию 8–14 уже второй год. Стал гораздо увереннее, а летом съездили всей семьёй в Крым на скалы.»</p>
-                  <p class="mb-0 fw-bold">Алексей, папа Миши</p>
-                  <p class="text-white-50 small">детская секция</p>
+                <p class="visually-hidden">Средняя оценка <span data-rating-avg>4,9</span> из 5</p>
+                <div class="d-grid gap-2 my-4" data-rating-bars>
+                  <div class="rating-row">
+                    <span>5 <i class="bi bi-star-fill text-warning" aria-hidden="true"></i></span>
+                    <div class="progress" role="progressbar" aria-label="Оценка 5: 118 отзывов" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width: 92%"></div></div>
+                    <span class="text-end text-body-secondary" data-rating-count-5>118</span>
+                  </div>
+                  <div class="rating-row">
+                    <span>4 <i class="bi bi-star-fill text-warning" aria-hidden="true"></i></span>
+                    <div class="progress" role="progressbar" aria-label="Оценка 4: 8 отзывов" aria-valuenow="6" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width: 6%"></div></div>
+                    <span class="text-end text-body-secondary" data-rating-count-4>8</span>
+                  </div>
+                  <div class="rating-row">
+                    <span>3 <i class="bi bi-star-fill text-warning" aria-hidden="true"></i></span>
+                    <div class="progress" role="progressbar" aria-label="Оценка 3: 2 отзывов" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width: 2%"></div></div>
+                    <span class="text-end text-body-secondary" data-rating-count-3>2</span>
+                  </div>
+                  <div class="rating-row">
+                    <span>2 <i class="bi bi-star-fill text-warning" aria-hidden="true"></i></span>
+                    <div class="progress" role="progressbar" aria-label="Оценка 2: 0 отзывов" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width: 0%"></div></div>
+                    <span class="text-end text-body-secondary" data-rating-count-2>0</span>
+                  </div>
+                  <div class="rating-row">
+                    <span>1 <i class="bi bi-star-fill text-warning" aria-hidden="true"></i></span>
+                    <div class="progress" role="progressbar" aria-label="Оценка 1: 0 отзывов" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width: 0%"></div></div>
+                    <span class="text-end text-body-secondary" data-rating-count-1>0</span>
+                  </div>
                 </div>
-                <div class="carousel-item">
-                  <p class="review-quote mb-4">«Лучший боулдеринг в районе: трассы реально обновляют каждую неделю, накрутка разнообразная, есть системная стена.»</p>
-                  <p class="mb-0 fw-bold">Тимур, 7A</p>
-                  <p class="text-white-50 small">годовой абонемент</p>
-                </div>
+                <button class="btn btn-primary w-100" type="button" data-bs-toggle="modal" data-bs-target="#reviewModal">
+                  <i class="bi bi-pencil-square me-1" aria-hidden="true"></i>Оставить отзыв
+                </button>
               </div>
-              <div class="carousel-indicators">
-                <button type="button" data-bs-target="#reviewsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Отзыв 1"></button>
-                <button type="button" data-bs-target="#reviewsCarousel" data-bs-slide-to="1" aria-label="Отзыв 2"></button>
-                <button type="button" data-bs-target="#reviewsCarousel" data-bs-slide-to="2" aria-label="Отзыв 3"></button>
+            </div>
+          </div>
+          <div class="col-12 col-lg-8">
+            <div class="nav nav-pills gap-1 mb-3" role="group" aria-label="Фильтр отзывов">
+                <button type="button" class="nav-link active" data-review-filter="all" aria-pressed="true">Все</button>
+                <button type="button" class="nav-link" data-review-filter="new" aria-pressed="false">Новички</button>
+                <button type="button" class="nav-link" data-review-filter="kids" aria-pressed="false">Дети</button>
+                <button type="button" class="nav-link" data-review-filter="pro" aria-pressed="false">Опытные</button>
+            </div>
+            <div class="row g-3" id="reviewsList">
+              <div class="col-12 col-md-6 review-col" data-review-cat="new">
+                <article class="card review-card h-100 border-0 shadow-sm">
+                  <div class="card-body p-4 d-flex flex-column">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                      <span class="avatar" style="background-color: #f2541b" aria-hidden="true">МК</span>
+                      <div class="me-auto">
+                        <h3 class="h6 mb-0">Марина</h3>
+                        <div class="small text-body-secondary">лазает 4 месяца</div>
+                      </div>
+                      <div class="stars small" role="img" aria-label="Оценка 5 из 5">★★★★★</div>
+                    </div>
+                    <p class="mb-3">Пришла на вводное, не умея вообще ничего. Через месяц прошла первую шестёрку. Инструкторы очень терпеливые, а атмосфера — как в клубе друзей.</p>
+                    <div class="mt-auto d-flex justify-content-between gap-2 small text-body-secondary">
+                      <span><i class="bi bi-tag me-1" aria-hidden="true"></i>Вводное занятие</span>
+                      <time datetime="2026-10-28">28 октября</time>
+                    </div>
+                  </div>
+                </article>
               </div>
+              <div class="col-12 col-md-6 review-col" data-review-cat="kids">
+                <article class="card review-card h-100 border-0 shadow-sm">
+                  <div class="card-body p-4 d-flex flex-column">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                      <span class="avatar" style="background-color: #13a89e" aria-hidden="true">АП</span>
+                      <div class="me-auto">
+                        <h3 class="h6 mb-0">Алексей</h3>
+                        <div class="small text-body-secondary">папа Миши, 11 лет</div>
+                      </div>
+                      <div class="stars small" role="img" aria-label="Оценка 5 из 5">★★★★★</div>
+                    </div>
+                    <p class="mb-3">Водим сына в секцию 8–14 уже второй год. Стал гораздо увереннее, а летом съездили всей семьёй в Крым на скалы.</p>
+                    <div class="mt-auto d-flex justify-content-between gap-2 small text-body-secondary">
+                      <span><i class="bi bi-tag me-1" aria-hidden="true"></i>Детская секция</span>
+                      <time datetime="2026-10-21">21 октября</time>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <div class="col-12 col-md-6 review-col" data-review-cat="pro">
+                <article class="card review-card h-100 border-0 shadow-sm">
+                  <div class="card-body p-4 d-flex flex-column">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                      <span class="avatar" style="background-color: #7b61ff" aria-hidden="true">ТР</span>
+                      <div class="me-auto">
+                        <h3 class="h6 mb-0">Тимур</h3>
+                        <div class="small text-body-secondary">лазает 7A</div>
+                      </div>
+                      <div class="stars small" role="img" aria-label="Оценка 5 из 5">★★★★★</div>
+                    </div>
+                    <p class="mb-3">Лучший боулдеринг в районе: трассы реально обновляют каждую неделю, накрутка разнообразная, есть системная стена и кампусборд.</p>
+                    <div class="mt-auto d-flex justify-content-between gap-2 small text-body-secondary">
+                      <span><i class="bi bi-tag me-1" aria-hidden="true"></i>Годовой абонемент</span>
+                      <time datetime="2026-10-14">14 октября</time>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <div class="col-12 col-md-6 review-col" data-review-cat="new">
+                <article class="card review-card h-100 border-0 shadow-sm">
+                  <div class="card-body p-4 d-flex flex-column">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                      <span class="avatar" style="background-color: #1e90ff" aria-hidden="true">ЕС</span>
+                      <div class="me-auto">
+                        <h3 class="h6 mb-0">Екатерина</h3>
+                        <div class="small text-body-secondary">первое посещение</div>
+                      </div>
+                      <div class="stars small" role="img" aria-label="Оценка 4 из 5">★★★★<span class="text-body-tertiary">★</span></div>
+                    </div>
+                    <p class="mb-3">Боялась высоты, но большую часть занятия провели в боулдеринге над матами. На 16-метровую стену залезла сама! Минус один — вечером много людей.</p>
+                    <div class="mt-auto d-flex justify-content-between gap-2 small text-body-secondary">
+                      <span><i class="bi bi-tag me-1" aria-hidden="true"></i>Вводное занятие</span>
+                      <time datetime="2026-10-09">9 октября</time>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <div class="col-12 col-md-6 review-col review-extra d-none" data-review-cat="kids">
+                <article class="card review-card h-100 border-0 shadow-sm">
+                  <div class="card-body p-4 d-flex flex-column">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                      <span class="avatar" style="background-color: #e0457b" aria-hidden="true">ОВ</span>
+                      <div class="me-auto">
+                        <h3 class="h6 mb-0">Ольга</h3>
+                        <div class="small text-body-secondary">мама Софии, 7 лет</div>
+                      </div>
+                      <div class="stars small" role="img" aria-label="Оценка 5 из 5">★★★★★</div>
+                    </div>
+                    <p class="mb-3">Отмечали день рождения дочки по программе «Приключение». Дети в восторге, аниматоры-инструкторы держали внимание все два часа, а мы спокойно пили кофе.</p>
+                    <div class="mt-auto d-flex justify-content-between gap-2 small text-body-secondary">
+                      <span><i class="bi bi-tag me-1" aria-hidden="true"></i>День рождения</span>
+                      <time datetime="2026-09-30">30 сентября</time>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <div class="col-12 col-md-6 review-col review-extra d-none" data-review-cat="pro">
+                <article class="card review-card h-100 border-0 shadow-sm">
+                  <div class="card-body p-4 d-flex flex-column">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                      <span class="avatar" style="background-color: #2a2e37" aria-hidden="true">ДН</span>
+                      <div class="me-auto">
+                        <h3 class="h6 mb-0">Денис</h3>
+                        <div class="small text-body-secondary">лазает 3 года</div>
+                      </div>
+                      <div class="stars small" role="img" aria-label="Оценка 5 из 5">★★★★★</div>
+                    </div>
+                    <p class="mb-3">Хожу на трудность после работы. 32 линии, нормальные автостраховки и всегда можно найти напарника. Курс нижней страховки тоже очень толковый.</p>
+                    <div class="mt-auto d-flex justify-content-between gap-2 small text-body-secondary">
+                      <span><i class="bi bi-tag me-1" aria-hidden="true"></i>Безлимит на месяц</span>
+                      <time datetime="2026-09-18">18 сентября</time>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+            <p id="reviewsEmpty" class="text-body-secondary d-none mt-3">В этой категории пока нет отзывов — станьте первым!</p>
+            <div class="text-center mt-4">
+              <button id="reviewsMore" type="button" class="btn btn-outline-dark">Показать ещё</button>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FAQ: компонент accordion -->
-    <section class="container section">
+    <!-- FAQ: поиск по вопросам, фильтр по темам (btn-check), accordion -->
+    <section id="faq" class="container section">
       <div class="row g-4 g-lg-5">
         <div class="col-12 col-lg-4">
           <p class="eyebrow mb-2">Вопросы</p>
           <h2 class="display-6 mb-3">Частые вопросы</h2>
-          <p class="text-body-secondary">Не нашли ответ? Позвоните нам или напишите в Telegram — ответим за пару минут.</p>
-          <a class="btn btn-outline-primary" href="contacts.html">Связаться</a>
+          <p class="text-body-secondary">Найдите ответ по ключевому слову или выберите тему. Не нашли — напишите нам, ответим за пару минут.</p>
+          <div class="faq-search position-relative mb-3">
+            <label for="faqSearch" class="visually-hidden">Поиск по вопросам</label>
+            <i class="bi bi-search" aria-hidden="true"></i>
+            <input id="faqSearch" type="search" class="form-control" placeholder="Например, абонемент" autocomplete="off">
+          </div>
+          <div class="d-flex flex-wrap gap-2 mb-4" role="group" aria-label="Темы вопросов">
+              <input type="radio" class="btn-check" name="faq-cat" id="faq-cat-all" value="all" autocomplete="off" checked>
+              <label class="btn btn-sm btn-outline-dark" for="faq-cat-all">Все</label>
+              <input type="radio" class="btn-check" name="faq-cat" id="faq-cat-start" value="start" autocomplete="off">
+              <label class="btn btn-sm btn-outline-dark" for="faq-cat-start">Первый раз</label>
+              <input type="radio" class="btn-check" name="faq-cat" id="faq-cat-pay" value="pay" autocomplete="off">
+              <label class="btn btn-sm btn-outline-dark" for="faq-cat-pay">Оплата и абонементы</label>
+              <input type="radio" class="btn-check" name="faq-cat" id="faq-cat-kids" value="kids" autocomplete="off">
+              <label class="btn btn-sm btn-outline-dark" for="faq-cat-kids">Дети</label>
+              <input type="radio" class="btn-check" name="faq-cat" id="faq-cat-rules" value="rules" autocomplete="off">
+              <label class="btn btn-sm btn-outline-dark" for="faq-cat-rules">Правила</label>
+          </div>
+          <a class="btn btn-outline-primary" href="contacts.html#contacts">Задать свой вопрос</a>
         </div>
         <div class="col-12 col-lg-8">
+          <p class="small text-body-secondary mb-3" aria-live="polite">Найдено вопросов: <span id="faqCount">11</span></p>
           <div class="accordion" id="faqHome">
-            <div class="accordion-item">
+            <div class="accordion-item faq-item" data-faq-cat="start">
               <h3 class="accordion-header">
                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
                   Нужна ли физическая подготовка, чтобы начать?
@@ -493,7 +669,7 @@
                 <div class="accordion-body">Нет. На скалодроме есть трассы, которые проходят даже дети 5 лет. Сила придёт сама, а на вводном занятии инструктор покажет, как лазать ногами, а не руками.</div>
               </div>
             </div>
-            <div class="accordion-item">
+            <div class="accordion-item faq-item" data-faq-cat="start">
               <h3 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
                   Что взять с собой?
@@ -503,7 +679,7 @@
                 <div class="accordion-body">Удобную спортивную одежду, которая не сковывает движения, и полотенце, если планируете душ. Скальные туфли и магнезию можно взять напрокат.</div>
               </div>
             </div>
-            <div class="accordion-item">
+            <div class="accordion-item faq-item" data-faq-cat="start">
               <h3 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
                   Можно ли прийти без вводного занятия?
@@ -513,16 +689,89 @@
                 <div class="accordion-body">Да, если вы уже лазали на другом скалодроме. Перед первым посещением администратор проведёт короткий инструктаж (10 минут) и попросит подписать правила.</div>
               </div>
             </div>
-            <div class="accordion-item">
+            <div class="accordion-item faq-item" data-faq-cat="start">
               <h3 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
-                  С какого возраста можно лазать?
+                  Я боюсь высоты. Мне подойдёт скалолазание?
                 </button>
               </h3>
               <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqHome">
+                <div class="accordion-body">Да. Начать можно с боулдеринга — это стены до 4,5 метра над мягкими матами. На высокие стены вы подниметесь, только если захотите, и всегда с автостраховкой.</div>
+              </div>
+            </div>
+            <div class="accordion-item faq-item" data-faq-cat="pay">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5">
+                  Есть ли скидки для студентов и семей?
+                </button>
+              </h3>
+              <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqHome">
+                <div class="accordion-body">Студентам — специальный безлимит за 5 500 ₽ в месяц. Семьям с детьми — скидка 15% на второй и последующие абонементы, группам от 6 человек — 10% на разовые посещения.</div>
+              </div>
+            </div>
+            <div class="accordion-item faq-item" data-faq-cat="pay">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6" aria-expanded="false" aria-controls="faq6">
+                  Можно ли заморозить абонемент?
+                </button>
+              </h3>
+              <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqHome">
+                <div class="accordion-body">Да. Месячные абонементы замораживаются до 7 дней, годовой — до 30 дней, при болезни — по справке на весь срок. Напишите администратору или подойдите на ресепшен.</div>
+              </div>
+            </div>
+            <div class="accordion-item faq-item" data-faq-cat="pay">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7" aria-expanded="false" aria-controls="faq7">
+                  Как оплатить посещение?
+                </button>
+              </h3>
+              <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#faqHome">
+                <div class="accordion-body">На ресепшене картой, наличными или по QR-коду СБП. Абонементы и подарочные сертификаты можно оплатить там же или при онлайн-записи.</div>
+              </div>
+            </div>
+            <div class="accordion-item faq-item" data-faq-cat="kids">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq8" aria-expanded="false" aria-controls="faq8">
+                  С какого возраста можно лазать?
+                </button>
+              </h3>
+              <div id="faq8" class="accordion-collapse collapse" data-bs-parent="#faqHome">
                 <div class="accordion-body">Детские секции принимают с 5 лет. Подростки до 14 лет лазают только в присутствии тренера или родителя, 14–17 лет — с письменного согласия родителей.</div>
               </div>
             </div>
+            <div class="accordion-item faq-item" data-faq-cat="kids">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq9" aria-expanded="false" aria-controls="faq9">
+                  Нужна ли ребёнку медицинская справка?
+                </button>
+              </h3>
+              <div id="faq9" class="accordion-collapse collapse" data-bs-parent="#faqHome">
+                <div class="accordion-body">Для секции — да, справка от педиатра о допуске к занятиям спортом. Для разового посещения или праздника справка не нужна, достаточно согласия родителя.</div>
+              </div>
+            </div>
+            <div class="accordion-item faq-item" data-faq-cat="rules">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq10" aria-expanded="false" aria-controls="faq10">
+                  Можно ли лазать с верёвкой без допуска?
+                </button>
+              </h3>
+              <div id="faq10" class="accordion-collapse collapse" data-bs-parent="#faqHome">
+                <div class="accordion-body">Нет. Лазать с верёвкой можно только с допуском к страховке. Без допуска доступны автостраховки и боулдеринг, а допуск можно получить на курсе нижней страховки.</div>
+              </div>
+            </div>
+            <div class="accordion-item faq-item" data-faq-cat="rules">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq11" aria-expanded="false" aria-controls="faq11">
+                  Где оставить вещи?
+                </button>
+              </h3>
+              <div id="faq11" class="accordion-collapse collapse" data-bs-parent="#faqHome">
+                <div class="accordion-body">В раздевалке есть бесплатные шкафчики, душевые и сауна. Полотенце выдают на ресепшене, это входит в стоимость посещения.</div>
+              </div>
+            </div>
+          </div>
+          <div id="faqEmpty" class="alert alert-info d-none mt-3" role="status">
+            <i class="bi bi-info-circle me-2" aria-hidden="true"></i>Ничего не нашлось. Попробуйте другое слово или <a href="contacts.html#contacts" class="alert-link">задайте вопрос нам</a>.
           </div>
         </div>
       </div>
@@ -553,6 +802,7 @@
           <h2 class="mb-3">Посетителям</h2>
           <ul class="list-unstyled d-grid gap-2 mb-0">
             <li><a href="order.html">Запись онлайн</a></li>
+            <li><a href="account.html">Личный кабинет</a></li>
             <li><a href="kids.html#sections">Детские секции</a></li>
             <li><a href="kids.html#birthday">Дни рождения</a></li>
             <li><a href="halls.html#rules">Правила зала</a></li>
@@ -581,6 +831,60 @@
       </div>
     </div>
   </footer>
+
+  <!-- Форма отзыва -->
+  <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 rounded-4">
+        <div class="modal-header border-0 pb-0">
+          <div>
+            <h2 class="modal-title h5" id="reviewModalLabel">Ваш отзыв</h2>
+            <p class="text-body-secondary small mb-0">Расскажите, как прошло посещение</p>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+        </div>
+        <form id="reviewForm" novalidate>
+          <div class="modal-body">
+            <fieldset class="mb-3">
+              <legend class="form-label fs-6 mb-1">Оценка</legend>
+              <div class="star-input">
+                <input type="radio" name="rating" id="rate-5" value="5" required><label for="rate-5" title="Отлично"><i class="bi bi-star-fill" aria-hidden="true"></i><span class="visually-hidden">5 из 5</span></label>
+                <input type="radio" name="rating" id="rate-4" value="4"><label for="rate-4" title="Хорошо"><i class="bi bi-star-fill" aria-hidden="true"></i><span class="visually-hidden">4 из 5</span></label>
+                <input type="radio" name="rating" id="rate-3" value="3"><label for="rate-3" title="Нормально"><i class="bi bi-star-fill" aria-hidden="true"></i><span class="visually-hidden">3 из 5</span></label>
+                <input type="radio" name="rating" id="rate-2" value="2"><label for="rate-2" title="Плохо"><i class="bi bi-star-fill" aria-hidden="true"></i><span class="visually-hidden">2 из 5</span></label>
+                <input type="radio" name="rating" id="rate-1" value="1"><label for="rate-1" title="Ужасно"><i class="bi bi-star-fill" aria-hidden="true"></i><span class="visually-hidden">1 из 5</span></label>
+              </div>
+              <div class="invalid-feedback" id="ratingFeedback">Поставьте оценку от 1 до 5.</div>
+            </fieldset>
+            <div class="row g-3">
+              <div class="col-12 col-sm-6">
+                <label for="review-name" class="form-label">Имя</label>
+                <input id="review-name" name="name" type="text" class="form-control" minlength="2" maxlength="40" autocomplete="given-name" required>
+                <div class="invalid-feedback">Как вас подписать?</div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <label for="review-cat" class="form-label">Вы</label>
+                <select id="review-cat" name="cat" class="form-select">
+                  <option value="new">Новичок</option>
+                  <option value="pro">Опытный скалолаз</option>
+                  <option value="kids">Родитель ребёнка</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label for="review-text" class="form-label">Отзыв</label>
+                <textarea id="review-text" name="text" class="form-control" rows="4" minlength="20" maxlength="600" required placeholder="Что понравилось, что можно улучшить?"></textarea>
+                <div class="invalid-feedback">Напишите хотя бы пару предложений (от 20 символов).</div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer border-0 pt-0">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Отмена</button>
+            <button type="submit" class="btn btn-primary">Опубликовать</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
   <div class="modal fade" id="quickBookModal" tabindex="-1" aria-labelledby="quickBookLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">

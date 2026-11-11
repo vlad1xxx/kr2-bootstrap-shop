@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Личный кабинет — скалодром «Зацеп»</title>
+  <meta name="description" content="Личный кабинет скалодрома «Зацеп»: ваши записи, абонемент, история посещений и настройки профиля.">
+  <meta name="theme-color" content="#15171c">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+  <!-- Bootstrap 5.3.8 и иконки подключены локально (папка vendor/) -->
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <!-- Собственные стили подключаются после Bootstrap -->
+  <link rel="stylesheet" href="css/custom.css">
+  <!-- Тема ставится до отрисовки, чтобы не было «вспышки» светлой темы -->
+  <script src="js/theme.js"></script>
+</head>
+<body>
+
+  <a class="skip-link visually-hidden-focusable btn btn-primary" href="#main">Перейти к содержимому</a>
+
+  <div class="topbar py-2 d-none d-md-block">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-8">
+          <span class="me-4"><i class="bi bi-geo-alt me-1" aria-hidden="true"></i>Москва, 3-я Песчаная ул., 2с1</span>
+          <span><i class="bi bi-clock me-1" aria-hidden="true"></i>Будни 7:00–23:00, выходные 9:00–22:00</span>
+        </div>
+        <div class="col-md-4 text-md-end">
+          <a href="tel:+79642042976" class="fw-semibold"><i class="bi bi-telephone me-1" aria-hidden="true"></i>+7 (964) 204-29-76</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar navbar-expand-xl site-navbar sticky-top py-2" aria-label="Основное меню">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="images/logo.svg" alt="" width="38" height="38">
+        Зацеп
+      </a>
+
+      <button
+        class="navbar-toggler border-0"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNavbar"
+        aria-controls="mainNavbar"
+        aria-expanded="false"
+        aria-label="Переключить навигацию"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav mx-auto gap-xl-1">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Главная</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="halls.html">Залы и трассы</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="catalog.html">Абонементы и цены</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="product.html">Новичкам</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="kids.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Детям и события
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="kids.html#sections"><i class="bi bi-emoji-smile me-2" aria-hidden="true"></i>Детские секции</a></li>
+              <li><a class="dropdown-item" href="kids.html#birthday"><i class="bi bi-balloon me-2" aria-hidden="true"></i>Дни рождения</a></li>
+              <li><a class="dropdown-item" href="kids.html#competitions"><i class="bi bi-trophy me-2" aria-hidden="true"></i>Соревнования</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="catalog.html?cat=kids"><i class="bi bi-tag me-2" aria-hidden="true"></i>Цены для детей</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contacts.html">Контакты</a>
+          </li>
+        </ul>
+        <div class="d-flex align-items-center gap-2 mt-2 mt-xl-0">
+          <button class="btn btn-icon" type="button" data-bs-toggle="modal" data-bs-target="#searchModal" aria-label="Поиск по сайту" title="Поиск по сайту (/)">
+            <i class="bi bi-search" aria-hidden="true"></i>
+          </button>
+          <button class="btn btn-icon" type="button" data-theme-toggle aria-pressed="false" aria-label="Включить тёмную тему" title="Тёмная тема">
+            <i class="bi bi-moon-stars" aria-hidden="true"></i>
+          </button>
+          <a class="btn btn-icon active" href="account.html" aria-label="Личный кабинет" title="Личный кабинет" aria-current="page">
+            <i class="bi bi-person" aria-hidden="true"></i>
+          </a>
+          <a class="btn btn-primary" href="order.html">
+            <i class="bi bi-calendar2-check me-1" aria-hidden="true"></i>Записаться
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <section class="page-header py-5">
+      <div class="container py-lg-4">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb mb-3">
+            <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Личный кабинет</li>
+          </ol>
+        </nav>
+        <div class="row">
+          <div class="col-12 col-lg-8">
+            <h1 class="display-5 mb-3">Личный кабинет</h1>
+            <p class="lead mb-0">Ваши записи, абонемент и история посещений — в одном месте.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section pt-5">
+
+      <!-- Вход -->
+      <div id="accountLogin" class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card border-0 shadow-sm rounded-4">
+            <div class="card-body p-4 p-lg-5">
+              <div class="feature-icon mb-3"><i class="bi bi-person" aria-hidden="true"></i></div>
+              <h2 class="h3 mb-2">Вход в кабинет</h2>
+              <p class="text-body-secondary">Укажите имя и телефон, которые вы оставляли при записи.</p>
+              <form id="loginForm" novalidate>
+                <div class="mb-3">
+                  <label for="login-name" class="form-label">Имя</label>
+                  <input id="login-name" name="name" type="text" class="form-control" minlength="2" autocomplete="name" required>
+                  <div class="invalid-feedback">Введите имя (от 2 букв).</div>
+                </div>
+                <div class="mb-4">
+                  <label for="login-phone" class="form-label">Телефон</label>
+                  <div class="input-group has-validation">
+                    <span class="input-group-text">+7</span>
+                    <input id="login-phone" name="phone" type="tel" class="form-control" placeholder="900 000-00-00" pattern="[0-9\s\-\(\)]{10,15}" autocomplete="tel-national" required>
+                    <div class="invalid-feedback">Укажите номер из 10 цифр.</div>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg w-100">Войти</button>
+              </form>
+              <div class="alert alert-info small mt-4 mb-0" role="note">
+                <i class="bi bi-info-circle me-1" aria-hidden="true"></i>Демо-версия: данные хранятся только в вашем браузере и никуда не отправляются.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Кабинет -->
+      <div id="accountDashboard" class="d-none">
+        <div class="row g-4">
+          <div class="col-12 col-lg-4 col-xl-3">
+            <div class="card border-0 shadow-sm mb-3">
+              <div class="card-body p-4 text-center">
+                <span class="avatar avatar-lg bg-primary mx-auto mb-3" aria-hidden="true" data-user-initials>?</span>
+                <h2 class="h5 mb-1" data-user-name>Гость</h2>
+                <p class="text-body-secondary small mb-2" data-user-phone></p>
+                <span class="badge text-bg-warning rounded-pill">Уровень: <span data-user-level>новичок</span></span>
+              </div>
+            </div>
+            <div class="nav flex-column nav-pills account-nav gap-1" id="accountTabs" role="tablist" aria-orientation="vertical">
+              <button class="nav-link active" id="tab-bookings" data-bs-toggle="pill" data-bs-target="#pane-bookings" type="button" role="tab" aria-controls="pane-bookings" aria-selected="true">
+                <i class="bi bi-calendar2-week" aria-hidden="true"></i>Мои записи <span class="badge rounded-pill text-bg-primary" data-bookings-count>0</span>
+              </button>
+              <button class="nav-link" id="tab-subscription" data-bs-toggle="pill" data-bs-target="#pane-subscription" type="button" role="tab" aria-controls="pane-subscription" aria-selected="false">
+                <i class="bi bi-card-checklist" aria-hidden="true"></i>Абонемент
+              </button>
+              <button class="nav-link" id="tab-history" data-bs-toggle="pill" data-bs-target="#pane-history" type="button" role="tab" aria-controls="pane-history" aria-selected="false">
+                <i class="bi bi-clock-history" aria-hidden="true"></i>История
+              </button>
+              <button class="nav-link" id="tab-settings" data-bs-toggle="pill" data-bs-target="#pane-settings" type="button" role="tab" aria-controls="pane-settings" aria-selected="false">
+                <i class="bi bi-gear" aria-hidden="true"></i>Настройки
+              </button>
+            </div>
+            <button class="btn btn-link text-danger text-decoration-none mt-2 px-3" type="button" id="logoutBtn">
+              <i class="bi bi-box-arrow-right me-2" aria-hidden="true"></i>Выйти
+            </button>
+          </div>
+
+          <div class="col-12 col-lg-8 col-xl-9">
+            <div class="row g-3 mb-4 text-center">
+              <div class="col-6 col-md-3"><div class="card border-0 shadow-sm h-100"><div class="card-body"><div class="mini-stat">14</div><div class="small text-body-secondary mt-1">посещений</div></div></div></div>
+              <div class="col-6 col-md-3"><div class="card border-0 shadow-sm h-100"><div class="card-body"><div class="mini-stat">21 ч</div><div class="small text-body-secondary mt-1">на стене</div></div></div></div>
+              <div class="col-6 col-md-3"><div class="card border-0 shadow-sm h-100"><div class="card-body"><div class="mini-stat">63</div><div class="small text-body-secondary mt-1">трассы пройдено</div></div></div></div>
+              <div class="col-6 col-md-3"><div class="card border-0 shadow-sm h-100"><div class="card-body"><div class="mini-stat">420</div><div class="small text-body-secondary mt-1">бонусных баллов</div></div></div></div>
+            </div>
+
+            <div class="tab-content">
+              <!-- Записи -->
+              <div class="tab-pane fade show active" id="pane-bookings" role="tabpanel" aria-labelledby="tab-bookings" tabindex="0">
+                <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+                  <h2 class="h4 mb-0">Мои записи</h2>
+                  <a class="btn btn-primary btn-sm" href="order.html"><i class="bi bi-plus-lg me-1" aria-hidden="true"></i>Новая запись</a>
+                </div>
+                <div id="bookingsList" class="d-grid gap-3"></div>
+                <div id="bookingsEmpty" class="card border-0 bg-chalk text-center p-4 p-lg-5 d-none">
+                  <i class="bi bi-calendar2-plus fs-1 text-orange mb-2" aria-hidden="true"></i>
+                  <h3 class="h5">Пока нет записей</h3>
+                  <p class="text-body-secondary mb-3">Запишитесь онлайн — запись сразу появится здесь.</p>
+                  <div><a class="btn btn-primary" href="order.html">Записаться</a></div>
+                </div>
+              </div>
+
+              <!-- Абонемент -->
+              <div class="tab-pane fade" id="pane-subscription" role="tabpanel" aria-labelledby="tab-subscription" tabindex="0">
+                <h2 class="h4 mb-3">Абонемент</h2>
+                <div class="card card-featured border-0 shadow mb-3">
+                  <div class="card-body p-4">
+                    <div class="d-flex flex-wrap justify-content-between gap-2 mb-3">
+                      <div>
+                        <span class="badge text-bg-warning rounded-pill mb-2">Активен</span>
+                        <h3 class="h4 mb-1">8 посещений</h3>
+                        <p class="text-body-secondary small mb-0">Действует до 15 января 2027</p>
+                      </div>
+                      <div class="price">6&nbsp;400&nbsp;₽</div>
+                    </div>
+                    <div class="d-flex justify-content-between small mb-2"><span>Использовано 5 из 8</span><span>осталось 3</span></div>
+                    <div class="progress mb-4" role="progressbar" aria-label="Использовано 5 из 8 посещений" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar" style="width: 62%"></div></div>
+                    <div class="d-flex flex-wrap gap-2">
+                      <a class="btn btn-primary" href="catalog.html?cat=subs">Продлить</a>
+                      <button class="btn btn-outline-light" type="button" id="freezeBtn">Заморозить на 7 дней</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="alert alert-warning d-flex gap-2 mb-0" role="note">
+                  <i class="bi bi-lightbulb" aria-hidden="true"></i>
+                  <div>Осталось 3 посещения. Безлимит на месяц выгоднее, если вы лазаете чаще двух раз в неделю.</div>
+                </div>
+              </div>
+
+              <!-- История -->
+              <div class="tab-pane fade" id="pane-history" role="tabpanel" aria-labelledby="tab-history" tabindex="0">
+                <h2 class="h4 mb-3">История посещений</h2>
+                <div class="table-responsive bg-body rounded-4 border">
+                  <table class="table align-middle mb-0">
+                    <thead class="table-light">
+                      <tr><th scope="col">Дата</th><th scope="col">Услуга</th><th scope="col" class="d-none d-md-table-cell">Зал</th><th scope="col" class="text-center">Трассы</th><th scope="col">Статус</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-nowrap"><time datetime="2026-11-08">8 ноября</time></td>
+                        <td>Разовое посещение</td>
+                        <td class="d-none d-md-table-cell text-body-secondary">Боулдеринг «Пещера»</td>
+                        <td class="text-center">6</td>
+                        <td><span class="badge rounded-pill text-bg-success">Посещено</span></td>
+                      </tr>
+                      <tr>
+                        <td class="text-nowrap"><time datetime="2026-11-02">2 ноября</time></td>
+                        <td>Группа «Старт», занятие 4</td>
+                        <td class="d-none d-md-table-cell text-body-secondary">Трудность «Стена»</td>
+                        <td class="text-center">5</td>
+                        <td><span class="badge rounded-pill text-bg-success">Посещено</span></td>
+                      </tr>
+                      <tr>
+                        <td class="text-nowrap"><time datetime="2026-10-30">30 октября</time></td>
+                        <td>Группа «Старт», занятие 3</td>
+                        <td class="d-none d-md-table-cell text-body-secondary">Трудность «Стена»</td>
+                        <td class="text-center">4</td>
+                        <td><span class="badge rounded-pill text-bg-success">Посещено</span></td>
+                      </tr>
+                      <tr>
+                        <td class="text-nowrap"><time datetime="2026-10-26">26 октября</time></td>
+                        <td>Разовое посещение</td>
+                        <td class="d-none d-md-table-cell text-body-secondary">Боулдеринг «Пещера»</td>
+                        <td class="text-center">7</td>
+                        <td><span class="badge rounded-pill text-bg-success">Посещено</span></td>
+                      </tr>
+                      <tr>
+                        <td class="text-nowrap"><time datetime="2026-10-23">23 октября</time></td>
+                        <td>Группа «Старт», занятие 2</td>
+                        <td class="d-none d-md-table-cell text-body-secondary">Тренажёрная зона</td>
+                        <td class="text-center">—</td>
+                        <td><span class="badge rounded-pill text-bg-secondary">Пропуск</span></td>
+                      </tr>
+                      <tr>
+                        <td class="text-nowrap"><time datetime="2026-10-19">19 октября</time></td>
+                        <td>Вводное занятие «Первый зацеп»</td>
+                        <td class="d-none d-md-table-cell text-body-secondary">Боулдеринг «Пещера»</td>
+                        <td class="text-center">5</td>
+                        <td><span class="badge rounded-pill text-bg-success">Посещено</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- Настройки -->
+              <div class="tab-pane fade" id="pane-settings" role="tabpanel" aria-labelledby="tab-settings" tabindex="0">
+                <h2 class="h4 mb-3">Настройки профиля</h2>
+                <form id="profileForm" class="card border-0 shadow-sm" novalidate>
+                  <div class="card-body p-4">
+                    <div class="row g-3">
+                      <div class="col-12 col-md-6">
+                        <label for="profile-name" class="form-label">Имя</label>
+                        <input id="profile-name" name="name" type="text" class="form-control" minlength="2" autocomplete="name" required>
+                        <div class="invalid-feedback">Введите имя (от 2 букв).</div>
+                      </div>
+                      <div class="col-12 col-md-6">
+                        <label for="profile-phone" class="form-label">Телефон</label>
+                        <div class="input-group has-validation">
+                          <span class="input-group-text">+7</span>
+                          <input id="profile-phone" name="phone" type="tel" class="form-control" pattern="[0-9\s\-\(\)]{10,15}" autocomplete="tel-national" required>
+                          <div class="invalid-feedback">Укажите номер из 10 цифр.</div>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-6">
+                        <label for="profile-email" class="form-label">E-mail</label>
+                        <input id="profile-email" name="email" type="email" class="form-control" autocomplete="email" placeholder="you@example.ru">
+                        <div class="invalid-feedback">Проверьте адрес почты.</div>
+                      </div>
+                      <div class="col-12 col-md-6">
+                        <label for="profile-level" class="form-label">Уровень</label>
+                        <select id="profile-level" name="level" class="form-select">
+                          <option value="новичок">Новичок</option>
+                          <option value="лазаю иногда">Лазаю иногда</option>
+                          <option value="уверенный">Уверенный</option>
+                          <option value="допуск к верёвке">Есть допуск к верёвке</option>
+                        </select>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-check form-switch">
+                          <input id="profile-remind" name="remind" class="form-check-input" type="checkbox" role="switch">
+                          <label class="form-check-label" for="profile-remind">Напоминать о записи за день</label>
+                        </div>
+                        <div class="form-check form-switch">
+                          <input id="profile-news" name="news" class="form-check-input" type="checkbox" role="switch">
+                          <label class="form-check-label" for="profile-news">Присылать новости о трассах и соревнованиях</label>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <fieldset>
+                          <legend class="form-label fs-6">Оформление сайта</legend>
+                          <div class="d-flex flex-wrap gap-2">
+                            <input type="radio" class="btn-check" name="theme-choice" id="theme-light" value="light" autocomplete="off">
+                            <label class="btn btn-outline-dark" for="theme-light"><i class="bi bi-sun me-1" aria-hidden="true"></i>Светлая</label>
+                            <input type="radio" class="btn-check" name="theme-choice" id="theme-dark" value="dark" autocomplete="off">
+                            <label class="btn btn-outline-dark" for="theme-dark"><i class="bi bi-moon-stars me-1" aria-hidden="true"></i>Тёмная</label>
+                          </div>
+                        </fieldset>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-footer bg-transparent border-0 px-4 pb-4 pt-0">
+                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer pt-5 pb-4">
+    <div class="container">
+      <div class="row g-4 pb-4">
+        <div class="col-12 col-lg-4">
+          <a class="d-inline-flex align-items-center gap-2 mb-3 text-white fs-4 font-display fw-bold" href="index.html">
+            <img src="images/logo.svg" alt="" width="40" height="40">Зацеп
+          </a>
+          <p class="mb-0">Скалодром для тех, кто только начинает, и для тех, кто давно лазает. Боулдеринг, трудность, детские секции и соревнования.</p>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2">
+          <h2 class="mb-3">Скалодром</h2>
+          <ul class="list-unstyled d-grid gap-2 mb-0">
+            <li><a href="halls.html">Залы и трассы</a></li>
+            <li><a href="catalog.html">Абонементы</a></li>
+            <li><a href="product.html">Вводное занятие</a></li>
+            <li><a href="kids.html#competitions">Соревнования</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2">
+          <h2 class="mb-3">Посетителям</h2>
+          <ul class="list-unstyled d-grid gap-2 mb-0">
+            <li><a href="order.html">Запись онлайн</a></li>
+            <li><a href="account.html">Личный кабинет</a></li>
+            <li><a href="kids.html#sections">Детские секции</a></li>
+            <li><a href="kids.html#birthday">Дни рождения</a></li>
+            <li><a href="halls.html#rules">Правила зала</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-md-4 col-lg-4">
+          <h2 class="mb-3">Контакты</h2>
+          <ul class="list-unstyled d-grid gap-2 mb-0">
+            <li><i class="bi bi-geo-alt me-2 text-orange" aria-hidden="true"></i>Москва, 3-я Песчаная ул., 2с1</li>
+            <li><i class="bi bi-telephone me-2 text-orange" aria-hidden="true"></i><a href="tel:+79642042976">+7 (964) 204-29-76</a></li>
+            <li><i class="bi bi-clock me-2 text-orange" aria-hidden="true"></i>Будни 7:00–23:00, выходные 9:00–22:00</li>
+            <li><i class="bi bi-envelope me-2 text-orange" aria-hidden="true"></i><a href="mailto:hello@zacep-climb.ru">hello@zacep-climb.ru</a></li>
+          </ul>
+          <div class="d-flex gap-2 mt-4">
+            <a class="social-link" href="#" aria-label="Мы в Telegram"><i class="bi bi-telegram" aria-hidden="true"></i></a>
+            <a class="social-link" href="#" aria-label="Мы на YouTube"><i class="bi bi-youtube" aria-hidden="true"></i></a>
+            <a class="social-link" href="#" aria-label="Написать в WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-top border-secondary-subtle pt-4 d-flex flex-column flex-md-row justify-content-between gap-2 small">
+        <p class="mb-0">&copy; <span data-year>2026</span> Скалодром «Зацеп». Все права защищены.</p>
+        <p class="mb-0"><a href="contacts.html">Политика конфиденциальности</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal fade" id="quickBookModal" tabindex="-1" aria-labelledby="quickBookLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 rounded-4">
+        <div class="modal-header border-0 pb-0">
+          <div>
+            <h2 class="modal-title h5" id="quickBookLabel">Быстрая запись</h2>
+            <p class="text-body-secondary small mb-0">Перезвоним за 15 минут и подберём время</p>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+        </div>
+
+        <form class="needs-validation" novalidate data-success-title="Заявка принята" data-success-text="{name}администратор позвонит вам в течение 15 минут и подтвердит запись.">
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="quick-name" class="form-label">Имя</label>
+              <input id="quick-name" name="name" type="text" class="form-control" autocomplete="given-name" required>
+              <div class="invalid-feedback">Как к вам обращаться?</div>
+            </div>
+            <div class="mb-3">
+              <label for="quick-phone" class="form-label">Телефон</label>
+              <div class="input-group has-validation">
+                <span class="input-group-text">+7</span>
+                <input id="quick-phone" name="phone" type="tel" class="form-control" placeholder="900 000-00-00" pattern="[0-9\s\-\(\)]{10,15}" autocomplete="tel-national" required>
+                <div class="invalid-feedback">Укажите номер из 10 цифр.</div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="quick-service" class="form-label">Что вас интересует</label>
+              <select id="quick-service" name="service" class="form-select">
+                  <optgroup label="Посещения">
+                    <option value="intro" data-price="2400" data-gear="included">Вводное занятие «Первый зацеп»</option>
+                    <option value="single" data-price="1200">Разовое посещение</option>
+                    <option value="single-morning" data-price="900">Разовое утром (будни до 16:00)</option>
+                  </optgroup>
+                  <optgroup label="Абонементы">
+                    <option value="sub-8" data-price="6400">8 посещений (действует 2 месяца)</option>
+                    <option value="sub-month" data-price="7900">Безлимит на месяц</option>
+                    <option value="sub-morning" data-price="4900">Утренний безлимит на месяц</option>
+                    <option value="sub-student" data-price="5500">Студенческий безлимит на месяц</option>
+                    <option value="sub-year" data-price="59000">Безлимит на год</option>
+                  </optgroup>
+                  <optgroup label="Тренировки">
+                    <option value="personal" data-price="3500">Персональная тренировка, 60 мин</option>
+                    <option value="group-start" data-price="9600">Группа «Старт», 8 занятий</option>
+                    <option value="group-tech" data-price="11200">Группа «Техника», 8 занятий</option>
+                    <option value="lead-course" data-price="14900">Курс нижней страховки, 4 занятия</option>
+                  </optgroup>
+                  <optgroup label="Детям и события">
+                    <option value="kids-trial" data-price="0" data-gear="included">Пробное детское занятие</option>
+                    <option value="kids-5" data-price="7200" data-gear="included">Детская секция 5–7 лет, месяц</option>
+                    <option value="kids-8" data-price="8000" data-gear="included">Детская секция 8–14 лет, месяц</option>
+                    <option value="birthday" data-price="24000" data-gear="included">День рождения «Приключение»</option>
+                    <option value="competition" data-price="1500">Участие в «Зацеп Open»</option>
+                  </optgroup>
+              </select>
+            </div>
+            <div class="form-check">
+              <input id="quick-agree" name="agree" class="form-check-input" type="checkbox" required>
+              <label class="form-check-label small" for="quick-agree">Согласен(на) на обработку персональных данных</label>
+              <div class="invalid-feedback">Без согласия мы не сможем перезвонить.</div>
+            </div>
+          </div>
+          <div class="modal-footer border-0 pt-0">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Отмена</button>
+            <button type="submit" class="btn btn-primary">Жду звонка</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="siteToast" class="toast border-0 shadow" role="status" aria-live="polite" aria-atomic="true">
+      <div class="toast-header">
+        <span class="badge text-bg-success rounded-pill me-2"><i class="bi bi-check-lg" aria-hidden="true"></i></span>
+        <strong class="me-auto" data-toast-title>Готово</strong>
+        <small>сейчас</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+      </div>
+      <div class="toast-body" data-toast-text></div>
+    </div>
+  </div>
+
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

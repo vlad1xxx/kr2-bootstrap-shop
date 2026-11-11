@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="vendor/bootstrap-icons/bootstrap-icons.min.css">
   <!-- Собственные стили подключаются после Bootstrap -->
   <link rel="stylesheet" href="css/custom.css">
+  <!-- Тема ставится до отрисовки, чтобы не было «вспышки» светлой темы -->
+  <script src="js/theme.js"></script>
 </head>
 <body>
 
@@ -32,7 +34,7 @@
     </div>
   </div>
 
-  <nav class="navbar navbar-expand-lg site-navbar sticky-top py-2" aria-label="Основное меню">
+  <nav class="navbar navbar-expand-xl site-navbar sticky-top py-2" aria-label="Основное меню">
     <div class="container">
       <a class="navbar-brand" href="index.html">
         <img src="images/logo.svg" alt="" width="38" height="38">
@@ -52,7 +54,7 @@
       </button>
 
       <div class="collapse navbar-collapse" id="mainNavbar">
-        <ul class="navbar-nav mx-auto gap-lg-1">
+        <ul class="navbar-nav mx-auto gap-xl-1">
           <li class="nav-item">
             <a class="nav-link" href="index.html">Главная</a>
           </li>
@@ -81,7 +83,16 @@
             <a class="nav-link" href="contacts.html">Контакты</a>
           </li>
         </ul>
-        <div class="d-flex flex-column flex-lg-row gap-2">
+        <div class="d-flex align-items-center gap-2 mt-2 mt-xl-0">
+          <button class="btn btn-icon" type="button" data-bs-toggle="modal" data-bs-target="#searchModal" aria-label="Поиск по сайту" title="Поиск по сайту (/)">
+            <i class="bi bi-search" aria-hidden="true"></i>
+          </button>
+          <button class="btn btn-icon" type="button" data-theme-toggle aria-pressed="false" aria-label="Включить тёмную тему" title="Тёмная тема">
+            <i class="bi bi-moon-stars" aria-hidden="true"></i>
+          </button>
+          <a class="btn btn-icon" href="account.html" aria-label="Личный кабинет" title="Личный кабинет">
+            <i class="bi bi-person" aria-hidden="true"></i>
+          </a>
           <a class="btn btn-primary" href="order.html">
             <i class="bi bi-calendar2-check me-1" aria-hidden="true"></i>Записаться
           </a>
@@ -565,6 +576,7 @@
           <h2 class="mb-3">Посетителям</h2>
           <ul class="list-unstyled d-grid gap-2 mb-0">
             <li><a href="order.html">Запись онлайн</a></li>
+            <li><a href="account.html">Личный кабинет</a></li>
             <li><a href="kids.html#sections">Детские секции</a></li>
             <li><a href="kids.html#birthday">Дни рождения</a></li>
             <li><a href="halls.html#rules">Правила зала</a></li>
