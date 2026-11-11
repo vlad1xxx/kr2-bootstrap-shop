@@ -246,8 +246,84 @@ html { scroll-padding-top: 90px; }
 :focus-visible { outline: 3px solid var(--zc-orange); outline-offset: 2px; }
 .skip-link:focus { position: fixed; top: .5rem; left: .5rem; z-index: 2000; }
 
+/* ---------- 9. Анимации ---------- */
+@keyframes zc-rise {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes zc-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+@keyframes zc-launch {
+  0% { transform: translateY(0); opacity: 1; }
+  45% { transform: translateY(-140%); opacity: 0; }
+  46% { transform: translateY(140%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Первый экран и шапки страниц выезжают по очереди */
+.hero > .container > .row > * > *,
+.page-header .container > * { animation: zc-rise .7s cubic-bezier(.2, .7, .2, 1) both; }
+.hero > .container > .row > * > :nth-child(2), .page-header .container > :nth-child(2) { animation-delay: .12s; }
+.hero > .container > .row > * > :nth-child(3), .page-header .container > :nth-child(3) { animation-delay: .24s; }
+.hero > .container > .row > * > :nth-child(4), .page-header .container > :nth-child(4) { animation-delay: .36s; }
+.hero > .container > .row > * > :nth-child(n+5) { animation-delay: .48s; }
+.hero .hero-card { animation-delay: .3s; }
+
+/* Появление блоков при прокрутке (класс .reveal ставит main.js) */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity .7s ease, transform .7s cubic-bezier(.2, .7, .2, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal.is-visible { opacity: 1; transform: none; }
+
+/* Микроанимации при наведении */
+.btn { transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, transform .15s ease; }
+.btn:hover { transform: translateY(-2px); }
+.btn:active, .input-group .btn:hover, .btn-group .btn:hover { transform: none; }
+.feature-icon { transition: transform .3s cubic-bezier(.3, 1.6, .5, 1); }
+.card:hover .feature-icon, .feature-icon:hover { transform: rotate(-8deg) scale(1.1); }
+.card-img-wrap, .card:has(> .card-img-top) { overflow: hidden; }
+.card-hover .card-img-top { transition: transform .5s ease; }
+.card-hover:hover .card-img-top { transform: scale(1.05); }
+.social-link { transition: background-color .2s ease, transform .2s ease; }
+.social-link:hover { transform: translateY(-3px); }
+.site-navbar { transition: box-shadow .25s ease; }
+.site-navbar.is-scrolled { box-shadow: 0 .5rem 1.5rem rgba(21, 23, 28, .08); }
+
+/* Кнопка «Наверх» */
+.to-top {
+  position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 1030;
+  width: 3.25rem; height: 3.25rem; padding: 0;
+  display: grid; place-items: center;
+  border: 0; border-radius: 50%;
+  background: var(--zc-orange); color: #fff; font-size: 1.35rem;
+  box-shadow: 0 .75rem 1.75rem rgba(242, 84, 27, .35);
+  overflow: hidden;
+  opacity: 0; visibility: hidden; transform: translateY(1rem) scale(.8);
+  transition: opacity .3s ease, transform .3s cubic-bezier(.3, 1.4, .5, 1), visibility .3s, background-color .2s ease;
+}
+.to-top.is-shown { opacity: 1; visibility: visible; transform: none; }
+.to-top:hover { background: var(--zc-orange-dark); }
+.to-top.is-shown:hover { transform: translateY(-3px); }
+.to-top-ring { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
+.to-top-ring circle { fill: none; stroke-width: 3; }
+.to-top-track { stroke: rgba(255, 255, 255, .25); }
+.to-top-progress { stroke: #fff; stroke-linecap: round; transition: stroke-dashoffset .1s linear; }
+.to-top-arrow { position: relative; line-height: 1; }
+.to-top:hover .to-top-arrow { animation: zc-bob .8s ease-in-out infinite; }
+.to-top.is-launching .to-top-arrow { animation: zc-launch .6s ease-in-out; }
+@media (max-width: 575.98px) { .to-top { right: 1rem; bottom: 1rem; width: 3rem; height: 3rem; } }
+
 @media (prefers-reduced-motion: reduce) {
   .card-hover, .card-hover:hover { transition: none; transform: none; }
+  .hero > .container > .row > * > *, .page-header .container > *,
+  .to-top-arrow, .to-top:hover .to-top-arrow, .to-top.is-launching .to-top-arrow { animation: none; }
+  .btn:hover, .social-link:hover, .to-top.is-shown:hover,
+  .card-hover:hover .card-img-top, .card:hover .feature-icon, .feature-icon:hover { transform: none; }
 }
 
 @media (max-width: 991.98px) {

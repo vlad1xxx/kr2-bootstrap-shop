@@ -229,4 +229,104 @@
     });
     update();
   }
+
+  /* ================= Анимации ================= */
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Появление блоков при прокрутке ---------- */
+  // Класс .reveal ставится только из JS: без скриптов контент виден сразу.
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    const revealTargets = $$('main section:not(.hero):not(.page-header) h2, main section:not(.hero):not(.page-header) .row > [class*="col"]');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    revealTargets.forEach((el) => {
+      // вложенные колонки не анимируем повторно — их уже двигает родитель
+      if (el.parentElement.closest('.reveal')) return;
+      const index = Array.from(el.parentElement.children).indexOf(el);
+      el.style.setProperty('--reveal-delay', Math.min(index, 4) * 90 + 'ms');
+      el.classList.add('reveal');
+      revealObserver.observe(el);
+    });
+  }
+
+  /* ---------- Счётчики в блоке статистики ---------- */
+  const counters = $$('.stat-value');
+  if (counters.length && !reduceMotion && 'IntersectionObserver' in window) {
+    const fmt = new Intl.NumberFormat('ru-RU');
+    const countUp = (el) => {
+      const original = el.textContent;
+      const match = original.match(/^([\d\s ]+)(.*)$/);
+      if (!match) return;
+      const target = Number(match[1].replace(/\D/g, ''));
+      const suffix = match[2];
+      const duration = 1400;
+      const start = performance.now();
+      const tick = (now) => {
+        const p = Math.min(1, (now - start) / duration);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = fmt.format(Math.round(target * eased)) + suffix;
+        if (p < 1) requestAnimationFrame(tick); else el.textContent = original;
+      };
+      requestAnimationFrame(tick);
+    };
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        countUp(entry.target);
+        counterObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.6 });
+    counters.forEach((el) => counterObserver.observe(el));
+  }
+
+  /* ---------- Кнопка «Наверх» с кольцом прогресса прокрутки ---------- */
+  const toTop = document.createElement('button');
+  toTop.type = 'button';
+  toTop.className = 'to-top';
+  toTop.setAttribute('aria-label', 'Наверх');
+  toTop.title = 'Наверх';
+  toTop.innerHTML =
+    '<svg class="to-top-ring" viewBox="0 0 48 48" aria-hidden="true">'
+    + '<circle class="to-top-track" cx="24" cy="24" r="22"></circle>'
+    + '<circle class="to-top-progress" cx="24" cy="24" r="22"></circle>'
+    + '</svg>'
+    + '<i class="bi bi-arrow-up to-top-arrow" aria-hidden="true"></i>';
+  document.body.appendChild(toTop);
+
+  const ring = $('.to-top-progress', toTop);
+  const ringLength = 2 * Math.PI * 22;
+  ring.style.strokeDasharray = ringLength;
+
+  const navbar = $('.site-navbar');
+  let ticking = false;
+  const onScroll = () => {
+    const y = window.scrollY;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = max > 0 ? Math.min(1, y / max) : 0;
+    ring.style.strokeDashoffset = ringLength * (1 - progress);
+    toTop.classList.toggle('is-shown', y > 400);
+    if (navbar) navbar.classList.toggle('is-scrolled', y > 10);
+    ticking = false;
+  };
+  window.addEventListener('scroll', () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
+  }, { passive: true });
+  onScroll();
+
+  toTop.addEventListener('click', () => {
+    toTop.classList.remove('is-launching');
+    void toTop.offsetWidth; // перезапуск анимации при повторном клике
+    toTop.classList.add('is-launching');
+    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+    // кнопка скроется, поэтому переводим фокус на логотип в шапке
+    const brand = $('.navbar-brand');
+    if (brand) brand.focus({ preventScroll: true });
+  });
+  toTop.addEventListener('animationend', () => toTop.classList.remove('is-launching'));
 })();
