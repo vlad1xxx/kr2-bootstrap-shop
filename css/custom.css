@@ -1,0 +1,257 @@
+/* ==========================================================================
+   «Зацеп» — дополнительные стили поверх Bootstrap 5.3
+   Подключается ПОСЛЕ bootstrap.min.css, поэтому может переопределять его.
+   Основа вёрстки — классы Bootstrap; здесь только фирменный стиль.
+   ========================================================================== */
+
+/* ---------- 1. Шрифты (локально, папка fonts/) ---------- */
+@font-face { font-family: "Manrope"; font-weight: 400; font-display: swap; src: url("../fonts/manrope-cyrillic-400.woff2") format("woff2"); unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: "Manrope"; font-weight: 400; font-display: swap; src: url("../fonts/manrope-latin-400.woff2") format("woff2"); unicode-range: U+0000-00FF, U+2000-206F, U+20BD, U+2190-21FF; }
+@font-face { font-family: "Manrope"; font-weight: 500; font-display: swap; src: url("../fonts/manrope-cyrillic-500.woff2") format("woff2"); unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: "Manrope"; font-weight: 500; font-display: swap; src: url("../fonts/manrope-latin-500.woff2") format("woff2"); unicode-range: U+0000-00FF, U+2000-206F, U+20BD, U+2190-21FF; }
+@font-face { font-family: "Manrope"; font-weight: 600; font-display: swap; src: url("../fonts/manrope-cyrillic-600.woff2") format("woff2"); unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: "Manrope"; font-weight: 600; font-display: swap; src: url("../fonts/manrope-latin-600.woff2") format("woff2"); unicode-range: U+0000-00FF, U+2000-206F, U+20BD, U+2190-21FF; }
+@font-face { font-family: "Manrope"; font-weight: 700; font-display: swap; src: url("../fonts/manrope-cyrillic-700.woff2") format("woff2"); unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: "Manrope"; font-weight: 700; font-display: swap; src: url("../fonts/manrope-latin-700.woff2") format("woff2"); unicode-range: U+0000-00FF, U+2000-206F, U+20BD, U+2190-21FF; }
+@font-face { font-family: "Manrope"; font-weight: 800; font-display: swap; src: url("../fonts/manrope-cyrillic-800.woff2") format("woff2"); unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: "Manrope"; font-weight: 800; font-display: swap; src: url("../fonts/manrope-latin-800.woff2") format("woff2"); unicode-range: U+0000-00FF, U+2000-206F, U+20BD, U+2190-21FF; }
+@font-face { font-family: "Unbounded"; font-weight: 600; font-display: swap; src: url("../fonts/unbounded-cyrillic-600.woff2") format("woff2"); unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: "Unbounded"; font-weight: 600; font-display: swap; src: url("../fonts/unbounded-latin-600.woff2") format("woff2"); unicode-range: U+0000-00FF, U+2000-206F, U+20BD, U+2190-21FF; }
+@font-face { font-family: "Unbounded"; font-weight: 700; font-display: swap; src: url("../fonts/unbounded-cyrillic-700.woff2") format("woff2"); unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: "Unbounded"; font-weight: 700; font-display: swap; src: url("../fonts/unbounded-latin-700.woff2") format("woff2"); unicode-range: U+0000-00FF, U+2000-206F, U+20BD, U+2190-21FF; }
+@font-face { font-family: "Unbounded"; font-weight: 800; font-display: swap; src: url("../fonts/unbounded-cyrillic-800.woff2") format("woff2"); unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: "Unbounded"; font-weight: 800; font-display: swap; src: url("../fonts/unbounded-latin-800.woff2") format("woff2"); unicode-range: U+0000-00FF, U+2000-206F, U+20BD, U+2190-21FF; }
+
+/* ---------- 2. Фирменные цвета через CSS-переменные Bootstrap ---------- */
+:root {
+  --zc-orange: #f2541b;
+  --zc-orange-dark: #d4430f;
+  --zc-ink: #15171c;
+  --zc-ink-2: #23262e;
+  --zc-chalk: #f6f4f0;
+  --zc-yellow: #f5c518;
+  --zc-teal: #2ec4b6;
+
+  --bs-primary: var(--zc-orange);
+  --bs-primary-rgb: 242, 84, 27;
+  --bs-primary-text-emphasis: #8f2c08;
+  --bs-primary-bg-subtle: #fde6dc;
+  --bs-primary-border-subtle: #f9b89f;
+  --bs-dark: var(--zc-ink);
+  --bs-dark-rgb: 21, 23, 28;
+  --bs-warning-rgb: 245, 197, 24;
+  --bs-light-rgb: 246, 244, 240;
+
+  --bs-body-font-family: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --bs-body-color: #23262e;
+  --bs-body-bg: #fff;
+  --bs-secondary-color: rgba(35, 38, 46, .68);
+  --bs-link-color: var(--zc-orange-dark);
+  --bs-link-color-rgb: 212, 67, 15;
+  --bs-link-hover-color: #a8350b;
+  --bs-link-hover-color-rgb: 168, 53, 11;
+  --bs-border-radius: .75rem;
+  --bs-border-radius-lg: 1.125rem;
+  --bs-border-radius-xl: 1.5rem;
+  --bs-border-color: #e7e3dc;
+  --bs-focus-ring-color: rgba(242, 84, 27, .3);
+}
+
+body { -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
+
+h1, h2, h3, .h1, .h2, .h3, .display-1, .display-2, .display-3, .display-4, .display-5, .display-6, .navbar-brand, .font-display {
+  font-family: "Unbounded", var(--bs-body-font-family);
+  letter-spacing: -.01em;
+}
+h1, .h1, .display-4, .display-5 { font-weight: 700; }
+h4, h5, h6, .h4, .h5, .h6 { font-family: var(--bs-body-font-family); font-weight: 800; letter-spacing: 0; }
+.lead { font-weight: 500; }
+
+/* Кнопки: в Bootstrap 5.3 цвета btn заданы локальными переменными */
+.btn { --bs-btn-font-weight: 700; --bs-btn-padding-x: 1.1rem; --bs-btn-border-radius: 999px; }
+.input-group .btn { --bs-btn-border-radius: var(--bs-border-radius); --bs-btn-padding-x: .9rem; }
+.btn-lg { --bs-btn-padding-x: 1.6rem; --bs-btn-font-size: 1.05rem; }
+.btn-sm { --bs-btn-padding-x: .8rem; }
+.btn-primary {
+  --bs-btn-bg: var(--zc-orange); --bs-btn-border-color: var(--zc-orange);
+  --bs-btn-hover-bg: var(--zc-orange-dark); --bs-btn-hover-border-color: var(--zc-orange-dark);
+  --bs-btn-active-bg: #b93a0c; --bs-btn-active-border-color: #b93a0c;
+  --bs-btn-disabled-bg: var(--zc-orange); --bs-btn-disabled-border-color: var(--zc-orange);
+  --bs-btn-focus-shadow-rgb: 242, 84, 27;
+}
+.btn-outline-primary {
+  --bs-btn-color: var(--zc-orange-dark); --bs-btn-border-color: var(--zc-orange);
+  --bs-btn-hover-bg: var(--zc-orange); --bs-btn-hover-border-color: var(--zc-orange); --bs-btn-hover-color: #fff;
+  --bs-btn-active-bg: var(--zc-orange-dark); --bs-btn-active-border-color: var(--zc-orange-dark);
+  --bs-btn-focus-shadow-rgb: 242, 84, 27;
+}
+.btn-dark { --bs-btn-bg: var(--zc-ink); --bs-btn-border-color: var(--zc-ink); }
+.btn-check:checked + .btn-outline-dark { --bs-btn-active-bg: var(--zc-ink); }
+
+/* Формы, фокус и прочие компоненты с «жёстко» заданным синим цветом */
+.form-control:focus, .form-select:focus, .form-check-input:focus {
+  border-color: #f7a283;
+  box-shadow: 0 0 0 .25rem var(--bs-focus-ring-color);
+}
+.form-check-input:checked { background-color: var(--zc-orange); border-color: var(--zc-orange); }
+.form-control, .form-select { padding-block: .6rem; }
+.form-label { font-weight: 600; }
+.nav-pills { --bs-nav-pills-link-active-bg: var(--zc-ink); --bs-nav-pills-border-radius: 999px; }
+.nav-pills .nav-link { font-weight: 600; color: var(--bs-body-color); }
+.nav-pills .nav-link.active { color: #fff; }
+.nav-tabs .nav-link { font-weight: 600; color: var(--bs-secondary-color); }
+.nav-tabs .nav-link.active { color: var(--bs-body-color); }
+.pagination { --bs-pagination-active-bg: var(--zc-ink); --bs-pagination-active-border-color: var(--zc-ink); --bs-pagination-color: var(--bs-body-color); --bs-pagination-hover-color: var(--zc-orange-dark); --bs-pagination-focus-box-shadow: 0 0 0 .25rem var(--bs-focus-ring-color); }
+.dropdown-menu { --bs-dropdown-link-active-bg: var(--zc-orange); --bs-dropdown-border-radius: .9rem; --bs-dropdown-padding-x: .4rem; --bs-dropdown-item-border-radius: .55rem; box-shadow: 0 1rem 2.5rem rgba(21, 23, 28, .15); border: 0; }
+.progress { --bs-progress-bar-bg: var(--zc-orange); --bs-progress-height: .5rem; }
+.accordion { --bs-accordion-active-bg: var(--bs-primary-bg-subtle); --bs-accordion-active-color: var(--zc-ink); --bs-accordion-btn-focus-box-shadow: 0 0 0 .25rem var(--bs-focus-ring-color); --bs-accordion-btn-font-weight: 700; }
+.accordion-button { font-weight: 700; }
+.badge { font-weight: 700; letter-spacing: .01em; }
+.text-bg-warning { color: var(--zc-ink) !important; }
+.breadcrumb { --bs-breadcrumb-divider-color: var(--bs-secondary-color); font-size: .925rem; }
+
+/* ---------- 3. Шапка ---------- */
+.topbar { background: var(--zc-ink); color: rgba(255, 255, 255, .72); font-size: .85rem; }
+.topbar a { color: rgba(255, 255, 255, .9); text-decoration: none; }
+.topbar a:hover { color: #fff; }
+
+html { scroll-padding-top: 90px; }
+.site-navbar { background: rgba(255, 255, 255, .92); backdrop-filter: saturate(160%) blur(12px); border-bottom: 1px solid var(--bs-border-color); }
+.site-navbar .navbar-brand { font-weight: 800; font-size: 1.35rem; color: var(--zc-ink); display: flex; align-items: center; gap: .5rem; }
+.site-navbar .navbar-brand img { width: 38px; height: 38px; }
+.site-navbar .nav-link { font-weight: 600; color: var(--bs-body-color); padding-inline: .8rem !important; border-radius: 999px; }
+.site-navbar .nav-link:hover { color: var(--zc-orange-dark); }
+.site-navbar .nav-link.active { color: var(--zc-orange-dark); background: var(--bs-primary-bg-subtle); }
+
+/* ---------- 4. Hero и фоновые блоки ---------- */
+.hero {
+  position: relative;
+  color: #fff;
+  background: var(--zc-ink) url("../images/hero.svg") center / cover no-repeat;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(21, 23, 28, .94) 0%, rgba(21, 23, 28, .78) 45%, rgba(21, 23, 28, .25) 100%);
+}
+.hero > * { position: relative; }
+.hero-title { font-size: clamp(2.1rem, 4.6vw, 3.7rem); line-height: 1.05; font-weight: 800; }
+.hero-title .accent { color: var(--zc-orange); }
+.hero .lead { color: rgba(255, 255, 255, .82); max-width: 36rem; }
+.hero-card { background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .14); backdrop-filter: blur(10px); }
+
+.page-header { background: var(--zc-ink) url("../images/pattern.svg") center / cover no-repeat; color: #fff; position: relative; }
+.page-header::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(21, 23, 28, .95), rgba(21, 23, 28, .7)); }
+.page-header > * { position: relative; }
+.page-header .breadcrumb-item a { color: rgba(255, 255, 255, .75); }
+.page-header .breadcrumb-item.active, .page-header .breadcrumb-item + .breadcrumb-item::before { color: rgba(255, 255, 255, .5); }
+.page-header .lead { color: rgba(255, 255, 255, .78); }
+
+.bg-chalk { background-color: var(--zc-chalk) !important; }
+.bg-ink { background-color: var(--zc-ink) !important; }
+.text-orange { color: var(--zc-orange) !important; }
+.eyebrow { font-size: .78rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--zc-orange-dark); }
+.section { padding-block: clamp(3.5rem, 7vw, 6rem); }
+
+/* ---------- 5. Карточки ---------- */
+.card { --bs-card-border-color: var(--bs-border-color); --bs-card-border-radius: 1.125rem; --bs-card-inner-border-radius: calc(1.125rem - 1px); }
+.card-hover { transition: transform .2s ease, box-shadow .2s ease; }
+.card-hover:hover { transform: translateY(-4px); box-shadow: 0 1.25rem 2.5rem rgba(21, 23, 28, .12) !important; }
+.card-img-top { height: 200px; object-fit: cover; }
+.card-img-wrap { position: relative; }
+.card-img-wrap .badge { position: absolute; top: 1rem; left: 1rem; }
+.price { font-family: "Unbounded", var(--bs-body-font-family); font-weight: 700; font-size: 1.5rem; color: var(--zc-ink); }
+.price small { font-family: var(--bs-body-font-family); font-size: .85rem; font-weight: 600; color: var(--bs-secondary-color); }
+.price-old { text-decoration: line-through; color: var(--bs-secondary-color); font-weight: 600; }
+
+.card-featured { background: var(--zc-ink); color: #fff; border-color: var(--zc-ink); }
+.card-featured .text-body-secondary { color: rgba(255, 255, 255, .65) !important; }
+.card-featured .price { color: #fff; }
+.card-featured .price small, .card-featured .price-old { color: rgba(255, 255, 255, .6); }
+.card-featured .list-check li::before { color: var(--zc-yellow); }
+
+.list-check { list-style: none; padding-left: 0; }
+.list-check li { position: relative; padding-left: 1.75rem; margin-bottom: .5rem; }
+.list-check li::before { content: "\F26E"; font-family: "bootstrap-icons"; position: absolute; left: 0; top: 0; color: var(--zc-orange); font-weight: 700; }
+
+.feature-icon {
+  width: 3.25rem; height: 3.25rem; display: inline-grid; place-items: center;
+  border-radius: 1rem; font-size: 1.5rem;
+  background: var(--bs-primary-bg-subtle); color: var(--zc-orange-dark);
+}
+.feature-icon.dark { background: rgba(255, 255, 255, .08); color: var(--zc-yellow); }
+
+.step-num {
+  width: 2.75rem; height: 2.75rem; flex-shrink: 0; display: grid; place-items: center;
+  border-radius: 50%; background: var(--zc-orange); color: #fff;
+  font-family: "Unbounded", sans-serif; font-weight: 700;
+}
+
+.stat-value { font-family: "Unbounded", sans-serif; font-weight: 800; font-size: clamp(1.8rem, 3.5vw, 2.6rem); line-height: 1; }
+
+.avatar {
+  width: 4rem; height: 4rem; flex-shrink: 0; display: grid; place-items: center; border-radius: 50%;
+  font-family: "Unbounded", sans-serif; font-weight: 700; color: #fff;
+}
+.avatar-lg { width: 5.5rem; height: 5.5rem; font-size: 1.4rem; }
+
+/* Цветовая маркировка трасс */
+.route-dot { display: inline-block; width: .85rem; height: .85rem; border-radius: 50%; border: 2px solid rgba(0, 0, 0, .15); vertical-align: -.1em; }
+.route-dot.orange { background: #f2541b; } .route-dot.yellow { background: #f5c518; }
+.route-dot.teal { background: #2ec4b6; } .route-dot.violet { background: #7b61ff; }
+.route-dot.pink { background: #ff4d8d; } .route-dot.green { background: #3ddc84; }
+.route-dot.blue { background: #1e90ff; } .route-dot.white { background: #fff; }
+.route-dot.black { background: #222; }
+
+.grade { display: inline-block; min-width: 2.75rem; text-align: center; font-weight: 800; border-radius: .5rem; padding: .15rem .45rem; font-size: .85rem; }
+.grade-easy { background: #dff7e9; color: #146c3a; }
+.grade-mid { background: #fff3c4; color: #7a5b00; }
+.grade-hard { background: #ffe0d3; color: #9a300a; }
+.grade-pro { background: #ece6ff; color: #4a32b5; }
+
+/* ---------- 6. Карусель отзывов и галерея ---------- */
+.review-carousel .carousel-indicators { position: static; margin: 1.5rem 0 0; }
+.review-carousel .carousel-indicators [data-bs-target] { background-color: var(--zc-ink); width: 2rem; height: 4px; border-radius: 2px; }
+.review-quote { font-size: clamp(1.1rem, 2vw, 1.4rem); font-weight: 600; line-height: 1.5; }
+.gallery-carousel img { height: clamp(260px, 42vw, 440px); object-fit: cover; }
+
+/* ---------- 7. Каталог ---------- */
+@media (min-width: 992px) { .filter-bar { position: sticky; top: 76px; z-index: 5; } }
+.catalog-item.is-hidden { display: none !important; }
+.map-box { min-height: 320px; background: #ece8e1 url("../images/map.svg") center / cover no-repeat; }
+
+/* Сводка заказа */
+.summary-card { position: sticky; top: 96px; }
+.summary-row { display: flex; justify-content: space-between; gap: 1rem; padding-block: .4rem; }
+
+/* ---------- 8. CTA и подвал ---------- */
+.cta {
+  background: var(--zc-orange) url("../images/pattern.svg") center / cover no-repeat;
+  position: relative; overflow: hidden; color: #fff;
+}
+.cta::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(242, 84, 27, .97), rgba(242, 84, 27, .82)); }
+.cta > * { position: relative; }
+
+.site-footer { background: var(--zc-ink); color: rgba(255, 255, 255, .68); }
+.site-footer h2 { font-family: var(--bs-body-font-family); font-size: .8rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: #fff; }
+.site-footer a { color: rgba(255, 255, 255, .78); text-decoration: none; }
+.site-footer a:hover { color: var(--zc-orange); }
+.social-link { width: 2.5rem; height: 2.5rem; display: inline-grid; place-items: center; border-radius: 50%; background: rgba(255, 255, 255, .08); font-size: 1.1rem; }
+.social-link:hover { background: var(--zc-orange); color: #fff !important; }
+
+/* Доступность: видимый фокус и пропуск к содержимому */
+:focus-visible { outline: 3px solid var(--zc-orange); outline-offset: 2px; }
+.skip-link:focus { position: fixed; top: .5rem; left: .5rem; z-index: 2000; }
+
+@media (prefers-reduced-motion: reduce) {
+  .card-hover, .card-hover:hover { transition: none; transform: none; }
+}
+
+@media (max-width: 991.98px) {
+  .site-navbar .navbar-collapse { padding-block: .75rem 1rem; }
+  .summary-card { position: static; }
+}
+
+.bg-teal { background-color: var(--zc-teal) !important; }
