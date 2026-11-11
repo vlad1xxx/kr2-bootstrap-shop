@@ -256,33 +256,45 @@
   }
 
   /* ---------- Счётчики в блоке статистики ---------- */
-  const counters = $$('.stat-value');
-  if (counters.length && !reduceMotion && 'IntersectionObserver' in window) {
+  // Цифры стартуют с нуля, считают вверх по очереди, а в конце «подпрыгивают».
+  if (!reduceMotion && 'IntersectionObserver' in window) {
     const fmt = new Intl.NumberFormat('ru-RU');
-    const countUp = (el) => {
-      const original = el.textContent;
+    const counters = $$('.stat-value').map((el, index) => {
+      const original = el.textContent.trim();
       const match = original.match(/^([\d\s ]+)(.*)$/);
-      if (!match) return;
-      const target = Number(match[1].replace(/\D/g, ''));
-      const suffix = match[2];
-      const duration = 1400;
+      if (!match) return null;
+      const space = match[1].match(/\s*$/)[0]; // пробел перед «м²», «м» сохраняем
+      const counter = { el, original, index, target: Number(match[1].replace(/\D/g, '')), suffix: space + match[2] };
+      el.textContent = '0' + counter.suffix;
+      el.classList.add('is-counting');
+      return counter;
+    }).filter(Boolean);
+
+    const countUp = ({ el, original, target, suffix }) => {
+      const duration = 2200;
       const start = performance.now();
       const tick = (now) => {
         const p = Math.min(1, (now - start) / duration);
-        const eased = 1 - Math.pow(1 - p, 3);
+        const eased = 1 - Math.pow(2, -10 * p); // быстро в начале, плавно в конце
         el.textContent = fmt.format(Math.round(target * eased)) + suffix;
-        if (p < 1) requestAnimationFrame(tick); else el.textContent = original;
+        if (p < 1) { requestAnimationFrame(tick); return; }
+        el.textContent = original;
+        el.classList.remove('is-counting');
+        el.classList.add('is-counted');
       };
       requestAnimationFrame(tick);
     };
+
     const counterObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
-        countUp(entry.target);
         counterObserver.unobserve(entry.target);
+        const counter = counters.find((c) => c.el === entry.target);
+        // ждём, пока колонка проявится, и запускаем цифры по очереди
+        setTimeout(() => countUp(counter), 400 + counter.index * 150);
       });
     }, { threshold: 0.6 });
-    counters.forEach((el) => counterObserver.observe(el));
+    counters.forEach((c) => counterObserver.observe(c.el));
   }
 
   /* ---------- Кнопка «Наверх» с кольцом прогресса прокрутки ---------- */
